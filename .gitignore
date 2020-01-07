@@ -1,0 +1,17 @@
+# Project Indexes of Jetbrains Apps
+.idea/
+
+# DB Connection Informations
+config/db.php
+
+# DB Datas
+config/db.sql
+
+# Pictures
+public/img/
+
+# Frontend Dependencies
+public/node_modules/
+
+# PHP Dependencies
+vendor/
