@@ -1,0 +1,21 @@
+{
+  "name": "portfolio-matthias",
+  "description": "Personal Portfolio",
+  "keywords": [
+    "web",
+    "php"
+  ],
+  "license": "MIT",
+  "main": "index.php",
+  "homepage": "https://matthias-geslin.net",
+  "repository": "github:Matthias-Geslin/Portfolio",
+  "bugs": "https://github.com/Matthias-Geslin/Portfolio/issues",
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.11.2"
+  },
+  "author": {
+    "name": "Matthias Geslin",
+    "email": "m.geslin974@gmail.com",
+    "url": "https://matthias-geslin.fr"
+  }
+}
