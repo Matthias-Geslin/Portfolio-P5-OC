@@ -13,5 +13,8 @@ public/img/
 # Frontend Dependencies
 public/node_modules/
 
+# CSS Preprocessor
+dart-sass/
+
 # PHP Dependencies
 vendor/
