@@ -1,0 +1,76 @@
+@import "variables";
+
+html {}
+
+/*  */
+body {
+  background-color: $lightBlue;
+}
+
+/*  */
+header {}
+
+/*  */
+nav {
+  text-align: center;
+  border: thick outset $darkenBlue;
+  background-color: $coral;
+  color: $darkenBlue;
+  user-select: none;
+}
+
+/*  */
+section {
+  font-family: 'Quicksand', sans-serif;
+  //font-family: 'Mina', sans-serif;
+  background-color: $darkenBlue;
+  color: $lightBlue;
+  padding: $sm-padding;
+}
+
+/*  */
+main {}
+
+/*  */
+article {}
+
+/*  */
+aside {}
+
+/*  */
+footer {}
+
+ul {
+  padding: 0;
+  list-style-type: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6
+{
+  font-family: 'Aleo', serif;
+
+}
+
+img {
+  width: 100px;
+}
+
+a {
+  text-decoration: none;
+  font-family: 'Gaegu', cursive;
+
+  &:link {    color: $link-colorLink;  }
+  &:visited {    color: $link-colorLink;  }
+}
+
+/* Media mobile screen */
+@media screen and (min-width: 479px) {}
+/* Media tablet screen */
+@media screen and (min-width: 959px) {}
+/* Media desktop screen */
+@media screen and (min-width: 1281px) {}
