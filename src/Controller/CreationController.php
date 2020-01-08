@@ -7,10 +7,10 @@ use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
 
 /**
- * Class CreationsController
+ * Class CreationController
  * @package App\Controller
  */
-class CreationsController extends MainController
+class CreationController extends MainController
 {
     /**
      * @return string
