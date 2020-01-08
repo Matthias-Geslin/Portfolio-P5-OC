@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}{% endblock %}</title>
+
+    <link rel="canonical" href="{% block canonical %}https://matthias-geslin.fr{% endblock %}">
+
+    <meta name="description"            content="{{ block('description') }}">
+    <meta name="author"                 content="Matthias Geslin">
+    <meta name="copyright"              content="MIT">
+
+    <meta property="og:type"            content="website">
+    <meta property="og:url"             content="{{ block('canonical') }}">
+    <meta property="og:title"           content="{{ block('title') }}">
+    <meta property="og:description"     content="{{ block('description') }}">
+    <meta property="og:image"           content="{% block image %}https://matthias-geslin.fr{% endblock %}">
+
+    <meta name="twitter:card"           content="summary">
+    <meta name="twitter:site"           content="{{ block('canonical') }}">
+    <meta name="twitter:title"          content="{{ block('title') }}">
+    <meta name="twitter:description"    content="{{ block('description') }}">
+    <meta name="twitter:image"          content="{{ block('image') }}">
+    <meta name="twitter:creator"        content="@Matthiasgeslin">
+
+    <link href="https://fonts.googleapis.com/css?family=Quicksand%7cAleo%7cGaegu%7cMina&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    {#    <link rel="stylesheet" href="css/normalize.css">#}
+</head>
+
+<body>
+
+<header>
+    <h1>Portfolio</h1>
+    <figure>
+        <img src="#" alt="Icon user">
+        <figcaption></figcaption>
+    </figure>
+    <blockquote></blockquote>
+
+    {{ include('layout/navbar.twig') }}
+    <div><i class="far fa-moon"></i><i class="far fa-sun"></i></div>
+</header>
+
+<section>
+    {% block content %}{% endblock %}
+</section>
+
+{{ include('layout/footer.twig') }}
+
+{% block script %}{% endblock %}
+
+<script src="https://cdn.tiny.cloud/1/2ft0e78s4vgopzn175v5xuhsocgt26z17x9duao9f7fxcger/tinymce/5/tinymce.min.js"></script>
+<script>
+    tinymce.init({
+        selector: '#content',
+        language: 'fr_FR',
+        forced_root_block : false,
+        force_p_newlines : false,
+        nonbreaking_force_tab: true,
+        entity_encoding: "numeric",
+        protect: [
+            /\<\/?(if|endif)\>/g,  // Protect <if> & </endif>
+            /\<xsl\:[^>]+\>/g,  // Protect <xsl:...>
+            /<\?php.*?\?>/g  // Protect php code
+        ],
+        plugins: 'print preview paste importcss searchreplace autolink autosave save directionality code visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists wordcount imagetools textpattern noneditable help charmap quickbars emoticons',
+        imagetools_cors_hosts: ['picsum.photos'],
+        menubar: 'file edit view insert format tools table help',
+        toolbar: 'undo redo | bold italic underline strikethrough | fontselect fontsizeselect formatselect | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist | forecolor backcolor removeformat | pagebreak | charmap emoticons | fullscreen  preview save print | insertfile image media template link anchor codesample | ltr rtl',
+        toolbar_sticky: true,
+        autosave_ask_before_unload: true,
+        autosave_interval: "30s",
+        autosave_prefix: "{path}{query}-{id}-",
+        autosave_restore_when_empty: false,
+        autosave_retention: "2m",
+        image_advtab: true,
+        content_css: [
+            '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
+            '//www.tiny.cloud/css/codepen.min.css'
+        ],
+        importcss_append: true,
+        height: 400,
+        file_picker_callback: function (callback, value, meta) {
+            /* Provide file and text for the link dialog */
+            if (meta.filetype === 'file') {
+                callback('https://www.google.com/logos/google.jpg', { text: 'My text' });
+            }
+
+            /* Provide image and alt text for the image dialog */
+            if (meta.filetype === 'image') {
+                callback('https://www.google.com/logos/google.jpg', { alt: 'My alt text' });
+            }
+
+            /* Provide alternative source and posted for the media dialog */
+            if (meta.filetype === 'media') {
+                callback('movie.mp4', { source2: 'alt.ogg', poster: 'https://www.google.com/logos/google.jpg' });
+            }
+        },
+        templates: [
+            { title: 'New Table', description: 'creates a new table', content: '<div class="mceTmpl"><table width="98%%"  border="0" cellspacing="0" cellpadding="0"><tr><th scope="col"> </th><th scope="col"> </th></tr><tr><td> </td><td> </td></tr></table></div>' },
+            { title: 'Starting my story', description: 'A cure for writers block', content: 'Once upon a time...' },
+            { title: 'New list with dates', description: 'New List with dates', content: '<div class="mceTmpl"><span class="cdate">cdate</span><br /><span class="mdate">mdate</span><h2>My List</h2><ul><li></li><li></li></ul></div>' }
+        ],
+        template_cdate_format: '[Date Created (CDATE): %m/%d/%Y : %H:%M:%S]',
+        template_mdate_format: '[Date Modified (MDATE): %m/%d/%Y : %H:%M:%S]',
+        image_caption: true,
+        quickbars_selection_toolbar: 'bold italic | quicklink h2 h3 blockquote quickimage quicktable',
+        noneditable_noneditable_class: "mceNonEditable",
+        toolbar_drawer: 'sliding',
+        contextmenu: "link image imagetools table"
+    });
+</script>
+</body>
+</html>
