@@ -1,0 +1,38 @@
+{% extends 'layout/template.twig' %}
+
+{% block description %}User modifications. Restricted access to the administrator.{% endblock %}
+
+{% block title %} Modifications about: {{ user.name }} {% endblock %}
+
+{% block content %}
+    <h1> Modification about: {{ user.name }}</h1>
+    <form action="{{ url('user!modify', {'id': user.id }) }}" method="post">
+        <ul>
+            <li>
+                <label for="name">Name</label>
+                <input id="name" type="text" name="name" value="{{ user.name }}" required>
+            </li>
+            <li>
+                <label for="email">Email</label>
+                <input id="email" type="email" name="email" value="{{ user.email }}" required>
+            </li>
+            <li>
+                <label for="status">Status</label>
+                <select id="status" name="status" required>
+                    <option value="{{ user.status }}" {{ selected }}>{{ user.status }}</option>
+                    <option value="Admin">Administrator</option>
+                    <option value="Member">Member</option>
+                    <option value="Visitor">Visitor</option>
+                </select>
+            </li>
+        </ul>
+
+        <ul>
+            <li>
+                <input type="reset" value="Reset">
+                <input type="submit" value="Update">
+            </li>
+        </ul>
+    </form>
+    <a href="{{ url('user') }}">Back</a>
+{% endblock %}
