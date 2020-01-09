@@ -31,20 +31,17 @@ class ConnectionController extends MainController
                     $user['pass'],
                     $user['status']
                 );
-                if($this->getUserVar('status') === 'Admin')
-                {
-                    $this->redirect('admin');
+                if($this->getUserVar('status') === 'Admin') {
+                    $this->redirect('user');
                 }
                 $this->redirect('home');
             }
         }
-        if($this->getUserVar('status') === 'Admin')
-        {
-            $this->redirect('admin');
+        if($this->getUserVar('status') === 'Admin') {
+            $this->redirect('user');
         }
-        elseif ($this->getUserVar('status') === 'Member')
-        {
-            $this->redirect('admin');
+        elseif ($this->getUserVar('status') === 'Member') {
+            $this->redirect('user');
         }
         elseif ($this->getUserVar('status') === 'Visitor') {
             $this->redirect('home');
