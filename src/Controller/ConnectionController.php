@@ -7,10 +7,10 @@ use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
 
 /**
- * Class ConnexionController
+ * Class ConnectionController
  * @package App\Controller
  */
-class ConnexionController extends MainController
+class ConnectionController extends MainController
 {
     /**
      * @return string
@@ -49,7 +49,7 @@ class ConnexionController extends MainController
         elseif ($this->getUserVar('status') === 'Visitor') {
             $this->redirect('home');
         }
-        return $this->render('connexion.twig');
+        return $this->render('connection.twig');
     }
 
     /**
