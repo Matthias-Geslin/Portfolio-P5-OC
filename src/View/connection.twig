@@ -1,0 +1,61 @@
+{% extends "layout/template.twig" %}
+
+{% block description %}Connection or registration space for the site.{% endblock %}
+
+{% block title %}Login / Sign-in{% endblock %}
+
+{% block content %}
+    <ul>
+        <input id="radio-signin" class="hide" name="sign" type="radio" checked>
+        <input id="radio-signup" class="hide" name="sign" type="radio">
+
+        <label for="radio-signin" class="sign-in"> Sign in </label>
+        <label for="radio-signup" class="sign-up"> Sign up </label>
+
+        <li id="signin">
+            <form class="form" action="{{ url('connexion!launch') }}" method="post" enctype="multipart/form-data">
+                <fieldset>
+                    <legend><i class="fas fa-unlock-alt"></i> Sign in</legend>
+                    <ul>
+                        <li>
+                            <label for="email">Email</label>
+                            <input id="email" name="email" type="email" placeholder="Email" required>
+                        </li>
+                        <li>
+                            <label for="pass">Password</label>
+                            <input id="pass" name="pass" type="password" placeholder="Password" autocomplete="off" required>
+                        </li>
+                        <li>
+                            <button type="submit">Sign in</button>
+                        </li>
+                    </ul>
+                </fieldset>
+            </form>
+        </li>
+
+        <li id="signup">
+            <form class="form" action="{{ url('user!create') }}" method="post" enctype="multipart/form-data">
+                <fieldset>
+                    <legend><i class="fas fa-fingerprint"></i> Sign up</legend>
+                    <ul>
+                        <li>
+                            <label for="name">Name</label>
+                            <input id="name" name="name" type="text" placeholder="Name" required>
+                        </li>
+                        <li>
+                            <label for="email">Email</label>
+                            <input id="email" name="email" type="email" placeholder="Email" required>
+                        </li>
+                        <li>
+                            <label for="pass">Password</label>
+                            <input id="pass" name="pass" type="password" placeholder="Password" autocomplete="off" required>
+                        </li>
+                        <li>
+                            <button type="submit" name="signup">Submit</button>
+                        </li>
+                    </ul>
+                </fieldset>
+            </form>
+        </li>
+    </ul>
+{% endblock %}
