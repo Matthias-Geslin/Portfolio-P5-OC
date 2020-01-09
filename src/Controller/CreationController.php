@@ -20,10 +20,10 @@ class CreationController extends MainController
      */
     public function launchMethod()
     {
-        $creations = ModelMaker::getModel('Creation')->listData();
+        $creation = ModelMaker::getModel('Creation')->listData();
 
-        return $this->render('creations.twig',[
-            'creations' => $creations
+        return $this->render('creation.twig',[
+            'creations' => $creation
         ]);
     }
 }
