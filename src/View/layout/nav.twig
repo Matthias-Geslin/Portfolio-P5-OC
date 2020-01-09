@@ -5,13 +5,13 @@
 {% if session.users.status is defined and session.users.status == 'Admin' %}
     <li><a href="{{ url('user') }}" title="Administration"><i class="fas fa-sign-in-alt"></i> Administration</a></li>
 {% else %}
-    <li><a href="{{ url('connexion') }}" title="Log in"><i class="fas fa-sign-in-alt"></i> Log in</a></li>
+    <li><a href="{{ url('connection') }}" title="Log in"><i class="fas fa-sign-in-alt"></i> Log in</a></li>
 {% endif %}
 
 
 {% if session.users.status is defined %}
     <li>{{ session.users.name }} - {{ session.users.status }}</li>
 
-    <li><a href="{{ url('connexion!logout') }}" title="Log out"><i class="fas fa-sign-out-alt"></i> Log out</a></li>
+    <li><a href="{{ url('connection!logout') }}" title="Log out"><i class="fas fa-sign-out-alt"></i> Log out</a></li>
 {% else%}
 {% endif %}
