@@ -1,0 +1,43 @@
+{% extends "layout/template.twig" %}
+
+{% block description %}Administration of the website, restricted area.{% endblock %}
+
+{% block title %}Administration{% endblock %}
+
+{% block content %}
+    <article>
+        <h3>Users</h3>
+        <ul>
+            {% for user in user %}
+                <li>{{ user.name }}</li>
+                <li>{{ user.email }}</li>
+                <li>{{ user.status }}</li>
+            {% endfor %}
+        </ul>
+    </article>
+
+    <article>
+        <h3>Creations</h3>
+        <ul>
+            {% for creation in creation %}
+                <li>{{ creation.name }}</li>
+                <li>{{ creation.image }}</li>
+                <li><a href="{{ creation.link }}">{{ creation.name }}</a></li>
+                <li>Made in {{ creation.year }}</li>
+                <li>{{ creation.description }}</li>
+                <li><hr></li>
+            {% endfor %}
+        </ul>
+    </article>
+
+    <article>
+        <h3>Certificates</h3>
+        <ul>
+            {% for certificate in certificate %}
+                <li>{{ certificate.name }}</li>
+                <li>{{ certificate.link }}</li>
+                <li>{{ certificate.certif_date }}</li>
+            {% endfor %}
+        </ul>
+    </article>
+{% endblock %}
