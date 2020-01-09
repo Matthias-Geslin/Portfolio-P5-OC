@@ -1,0 +1,17 @@
+{% extends "layout/template.twig" %}
+
+{% block description %}All my creations until today are rendered here.{% endblock %}
+
+{% block title %}My Creations{% endblock %}
+
+{% block content %}
+    <h2>My Creations</h2>
+    <article>
+        {% for creation in creations %}
+        <figure>
+            <a href=""><img src="" alt="{{ creation.name }}"></a>
+            <figcaption><a href="{{ creation.link }}" title="{{ creation.name }}" target="_blank">{{ creation.description }}</a></figcaption>
+        </figure>
+        {% endfor %}
+    </article>
+{% endblock %}

@@ -1,0 +1,62 @@
+/* Main colors */
+/* Box Properties */
+/* Links */
+/*  */
+body {
+  background-color: #82D5FF;
+}
+
+/*  */
+/*  */
+nav {
+  text-align: center;
+  border: thick outset #498FB3;
+  background-color: #FF9CA5;
+  color: #498FB3;
+  user-select: none;
+}
+
+/*  */
+section {
+  font-family: "Quicksand", sans-serif;
+  background-color: #498FB3;
+  color: #82D5FF;
+  padding: 15px;
+}
+
+/*  */
+/*  */
+/*  */
+/*  */
+ul {
+  padding: 0;
+  list-style-type: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Aleo", serif;
+}
+
+img {
+  width: 100px;
+}
+
+a {
+  text-decoration: none;
+  font-family: "Gaegu", cursive;
+}
+a:link {
+  color: #bde2c4;
+}
+a:visited {
+  color: #bde2c4;
+}
+
+/* Media mobile screen */
+/* Media tablet screen */
+/* Media desktop screen */

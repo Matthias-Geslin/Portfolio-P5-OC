@@ -1,6 +1,7 @@
 <?php
 namespace App\Controller;
 
+use App\Controller\Extension\PhpAdditionalExtension;
 use Twig\Environment;
 use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
@@ -33,6 +34,7 @@ abstract class MainController extends SuperGlobalsController
             'debug' => true
         ));
         $this->twig->addExtension(new DebugExtension());
+        $this->twig->addExtension(new PhpAdditionalExtension());
         $this->twig->addGlobal('session', $_SESSION);
         $this->twig->addFilter( new \Twig\TwigFilter('nl2br', 'nl2br', ['is_safe' => ['html']]));
     }

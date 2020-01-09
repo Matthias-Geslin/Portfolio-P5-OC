@@ -1,0 +1,17 @@
+{% extends "layout/template.twig" %}
+
+{% block description %}All my certificates about skills.{% endblock %}
+
+{% block title %}Certificates{% endblock %}
+
+{% block content %}
+    <h2>My Certificates</h2>
+    <article>
+        {% for certificate in certificate %}
+            <ul>
+                <li>{{ certificate.name }}</li>
+                <li><a href="{{ certificate.link }}" title="{{ certificate.name }}" target="_blank">{{ certificate.name }} - {{ certificate.certif_date }}</a></li>
+            </ul>
+        {% endfor %}
+    </article>
+{% endblock %}

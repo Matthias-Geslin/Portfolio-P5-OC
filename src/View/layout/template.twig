@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}{% endblock %}</title>
+
+    <link rel="canonical" href="{% block canonical %}https://matthias-geslin.fr{% endblock %}">
+
+    <meta name="description"            content="{{ block('description') }}">
+    <meta name="author"                 content="Matthias Geslin">
+    <meta name="copyright"              content="MIT">
+
+    <meta property="og:type"            content="website">
+    <meta property="og:url"             content="{{ block('canonical') }}">
+    <meta property="og:title"           content="{{ block('title') }}">
+    <meta property="og:description"     content="{{ block('description') }}">
+    <meta property="og:image"           content="{% block image %}https://matthias-geslin.fr{% endblock %}">
+
+    <meta name="twitter:card"           content="summary">
+    <meta name="twitter:site"           content="{{ block('canonical') }}">
+    <meta name="twitter:title"          content="{{ block('title') }}">
+    <meta name="twitter:description"    content="{{ block('description') }}">
+    <meta name="twitter:image"          content="{{ block('image') }}">
+    <meta name="twitter:creator"        content="@Matthiasgeslin">
+
+    <link href="https://fonts.googleapis.com/css?family=Quicksand%7cAleo%7cGaegu%7cMina&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>Portfolio</h1>
+    <figure>
+        <img src="img/me.jpg" alt="Picture of the owner">
+        <figcaption>Developer indeed, also gamer & passionate</figcaption>
+    </figure>
+    <blockquote></blockquote>
+
+    {{ include('layout/navbar.twig') }}
+    <div><i class="far fa-moon"></i><i class="far fa-sun"></i></div>
+</header>
+
+<section>
+    {% block content %}{% endblock %}
+</section>
+
+{{ include('layout/footer.twig') }}
+
+{% block script %}{% endblock %}
+
+</body>
+</html>
