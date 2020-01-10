@@ -1,0 +1,32 @@
+{% extends 'layout/template.twig' %}
+
+{% block description %}Creation of a certificate from the dedicated space. Restricted access to the administrator.{% endblock %}
+
+{% block title %} Certificate Creation {% endblock %}
+
+{% block content %}
+    <h1>Certificate Creation</h1>
+    <form action="{{ url('certificate!create') }}" method="post">
+        <ul>
+            <li>
+                <label for="name">Certificate name</label>
+                <input id="name" type="text" name="name" placeholder="Name" required>
+            </li>
+            <li>
+                <label for="link">Url link</label>
+                <input id="link" type="text" name="link" placeholder="Url link" required>
+            </li>
+            <li>
+                <label for="date">Date</label>
+                <input id="date" type="date" name="certif_date" required>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <input type="reset" value="Reset">
+                <input type="submit" value="Create">
+            </li>
+        </ul>
+    </form>
+    <a href="{{ url('user') }}">Back</a>
+{% endblock %}

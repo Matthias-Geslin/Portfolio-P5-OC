@@ -1,0 +1,48 @@
+{% extends 'layout/template.twig' %}
+
+{% block description %}Webpage to add a pen. Restricted access to the administrator.{% endblock %}
+
+{% block title %}Add a pen{% endblock %}
+
+{% block content %}
+    <h1> Add a pen</h1>
+    <form action="{{ url('creation!create', {'id': creation.id }) }}" method="post" enctype="multipart/form-data">
+        <ul>
+            <li>
+                <label for="name">Name</label>
+                <input id="name" type="text" name="name" placeholder="Name of the project / pen" required>
+            </li>
+            <li>
+                <label for="file">File</label>
+                <input id="file" type="file" name="file" accept=".jpg, .jpeg, .png, .svg, .gif" required>
+            </li>
+            <li>
+                <label for="link">Link</label>
+                <input id="link" type="text" name="link" placeholder="Link to the pen" required>
+            </li>
+            <li>
+                <label for="date">Date</label>
+                <input id="date" type="date" name="year" min="1970-01-01" max="2050-01-01" required>
+            </li>
+            <li>
+                <label for="description">Description</label>
+                <textarea id="description" rows="3" cols="50" name="description" required></textarea>
+            </li>
+            <li>
+                <label for="category">Category</label>
+                <select id="category" name="category">
+                    <option value="Website">Website</option>
+                    <option value="Codepen">Codepen</option>
+                </select>
+            </li>
+        </ul>
+
+        <ul>
+            <li>
+                <input type="reset" value="Reset">
+                <input type="submit" value="Update">
+            </li>
+        </ul>
+    </form>
+    <a href="{{ url('user') }}">Back</a>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'layout/template.twig' %}
+
+{% block description %}Certificate modifications. Restricted access to the administrator.{% endblock %}
+
+{% block title %} Modifications about: {{ certificate.name }} {% endblock %}
+
+{% block content %}
+    <h1> Modification about: {{ certificate.name }}</h1>
+    <form action="{{ url('certificate!modify', {'id': certificate.id }) }}" method="post">
+        <ul>
+            <li>
+                <label for="name">Certificate name</label>
+                <input id="name" type="text" name="name" value="{{ certificate.name }}" required>
+            </li>
+            <li>
+                <label for="link">Url link</label>
+                <input id="link" type="text" name="link" value="{{ certificate.link }}" required>
+            </li>
+            <li>
+                <label for="date">Date</label>
+                <input id="date" type="date" name="certif_date" value="{{ certificate.date }}" required>
+            </li>
+        </ul>
+
+        <ul>
+            <li>
+                <input type="reset" value="Reset">
+                <input type="submit" value="Update">
+            </li>
+        </ul>
+    </form>
+    <a href="{{ url('user') }}">Back</a>
+{% endblock %}

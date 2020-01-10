@@ -1,0 +1,32 @@
+{% extends 'layout/template.twig' %}
+
+{% block description %}Creation of a user from the dedicated space. Restricted access to the administrator.{% endblock %}
+
+{% block title %} User Creation {% endblock %}
+
+{% block content %}
+    <h1>User Creation</h1>
+    <form action="{{ url('user!create') }}" method="post">
+        <ul>
+            <li>
+                <label for="name">Nom</label>
+                <input id="name" type="text" name="name" placeholder="Name" required>
+            </li>
+            <li>
+                <label for="email">Email</label>
+                <input id="email" type="email" name="email" placeholder="email@email.com" required>
+            </li>
+            <li>
+                <label for="pass">Password</label>
+                <input id="pass" type="password" name="pass" placeholder="Password" autocomplete="off" required>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <input type="reset" value="Reset">
+                <input type="submit" value="Create">
+            </li>
+        </ul>
+    </form>
+    <a href="{{ url('user') }}">Back</a>
+{% endblock %}

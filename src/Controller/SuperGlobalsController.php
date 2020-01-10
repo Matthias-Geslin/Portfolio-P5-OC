@@ -21,12 +21,22 @@ abstract class SuperGlobalsController
     /**
      * @var mixed|null
      */
-    private $session = null;
+    protected $session = null;
 
     /**
      * @var mixed
      */
-    private $user = null;
+    protected $user = null;
+
+    /**
+     * @var
+     */
+    protected $files;
+
+    /**
+     * @var
+     */
+    protected $file;
 
     /**
      * SuperGlobalsController constructor
@@ -41,20 +51,25 @@ abstract class SuperGlobalsController
         {
             $this->user = $this->session['users'];
         }
+
+        $this->files = filter_var_array($_FILES);
+        if (isset($this->files['file'])) {
+            $this->file = $this->files['file'];
+        }
     }
 
     /**
      * @param int $id
-     * @param string $nickname
+     * @param string $name
      * @param string $email
      * @param string $password
      * @param string $status
      */
-    public function sessionCreate(int $id, string $nickname, string $email, string $password,string $status)
+    public function sessionCreate(int $id, string $name, string $email, string $password,string $status)
     {
         $_SESSION['users'] = [
             'id'          => $id,
-            'nickname'    => $nickname,
+            'name'        => $name,
             'email'       => $email,
             'pass'        => $password,
             'status'      => $status
@@ -92,5 +107,52 @@ abstract class SuperGlobalsController
             $this->user[$var] = null;
         }
         return $this->user[$var];
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFilesArray()
+    {
+        return $this->files;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFileArray()
+    {
+        return $this->file;
+    }
+
+    /**
+     * @param string $var
+     * @return mixed
+     */
+    public function getFileVar(string $var)
+    {
+        return $this->file[$var];
+    }
+
+    /**
+     * @param $fileDir
+     * @return mixed
+     */
+    public function uploadFile(string $fileDir)
+    {
+        try {
+            if (!isset($this->file['error']) || is_array($this->file['error'])) {
+                throw new Exception('Invalid parameters...');
+            }
+            if ($this->file['size'] > 1000000) {
+                throw new Exception('Exceeded filesize limit...');
+            }
+            if (!move_uploaded_file($this->file['tmp_name'], "{$fileDir}/{$this->file['name']}")) {
+                throw new Exception('Failed to move uploaded file...');
+            }
+            return $this->file['name'];
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
     }
 }
