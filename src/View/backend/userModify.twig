@@ -6,11 +6,15 @@
 
 {% block content %}
     <h1> Modification about: {{ user.name }}</h1>
-    <form action="{{ url('user!modify', {'id': user.id }) }}" method="post">
+    <form action="{{ url('user!modify', {'id': user.id }) }}" method="post" enctype="multipart/form-data">
         <ul>
             <li>
                 <label for="name">Name</label>
                 <input id="name" type="text" name="name" value="{{ user.name }}" required>
+            </li>
+            <li>
+                <label for="file">Image</label>
+                <input id="file" type="file" name="file" accept=".jpg, .jpeg, .png, .svg, .gif">
             </li>
             <li>
                 <label for="email">Email</label>

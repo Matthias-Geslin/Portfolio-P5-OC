@@ -6,11 +6,15 @@
 
 {% block content %}
     <h1>User Creation</h1>
-    <form action="{{ url('user!create') }}" method="post">
+    <form action="{{ url('user!create') }}" method="post"  enctype="multipart/form-data">
         <ul>
             <li>
                 <label for="name">Nom</label>
                 <input id="name" type="text" name="name" placeholder="Name" required>
+            </li>
+            <li>
+                <label for="file">Image</label>
+                <input id="file" type="file" name="file" accept=".jpg, .jpeg, .png, .svg, .gif" required>
             </li>
             <li>
                 <label for="email">Email</label>
