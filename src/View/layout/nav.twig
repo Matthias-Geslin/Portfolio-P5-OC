@@ -4,14 +4,19 @@
 
 {% if session.users.status is defined and session.users.status == 'Admin' %}
     <li><a href="{{ url('user') }}" title="Administration"><i class="fas fa-sign-in-alt"></i> Administration</a></li>
+{% elseif session.users.status is defined and session.users.status == 'Member' %}
+    <li><a href="{{ url('User') }}" title="Administration"><i class="fas fa-sign-in-alt"></i> Personal infos</a></li>
+{% elseif session.users.status is defined and session.users.status == 'Visitor' %}
+    <li>User not verified</li>
 {% else %}
     <li><a href="{{ url('connection') }}" title="Log in"><i class="fas fa-sign-in-alt"></i> Log in</a></li>
 {% endif %}
 
 
 {% if session.users.status is defined %}
-    <li>{{ session.users.name }} - {{ session.users.status }}</li>
+    <li>{{ session.users.name }} - {{ session.users.status }} - Logged in</li>
+    <li><img src="img/user/{{ session.users.file }}" alt="{{ session.users.name }}"></li>
 
     <li><a href="{{ url('connection!logout') }}" title="Log out"><i class="fas fa-sign-out-alt"></i> Log out</a></li>
-{% else%}
+{% else %}
 {% endif %}
