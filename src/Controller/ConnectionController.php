@@ -27,6 +27,7 @@ class ConnectionController extends MainController
                 $this->sessionCreate(
                     $user['id'],
                     $user['name'],
+                    $user['file'],
                     $user['email'],
                     $user['pass'],
                     $user['status']
