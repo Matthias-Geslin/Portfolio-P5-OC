@@ -36,6 +36,9 @@ abstract class MainController extends SuperGlobalsController
         $this->twig->addExtension(new DebugExtension());
         $this->twig->addExtension(new PhpAdditionalExtension());
         $this->twig->addGlobal('session', $_SESSION);
+        $this->twig->addGlobal('post', $_POST);
+        $this->twig->addGlobal('get', $_GET);
+        $this->twig->addGlobal('file', $_FILES);
         $this->twig->addFilter( new \Twig\TwigFilter('nl2br', 'nl2br', ['is_safe' => ['html']]));
     }
 
