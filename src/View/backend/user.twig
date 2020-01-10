@@ -11,7 +11,7 @@
             <li><a href="{{ url('user!create') }}" title="Create an user"><i class="fas fa-user-plus"></i> Create</a></li>
             {% for user in user %}
                 <li>{{ user.name }}</li>
-                <li>{{ user.image }}</li>
+                <li><img src="img/user/{{ user.file }}" alt="{{ user.file }}"></li>
                 <li>{{ user.email }}</li>
                 <li>{{ user.status }}</li>
                 <li><a href="{{ url('user!modify', {'id': user.id}) }}" title="Modify the user"><i class="fas fa-pen"></i> Modify</a></li>
