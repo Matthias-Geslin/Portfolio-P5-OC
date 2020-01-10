@@ -11,9 +11,11 @@
             <li><a href="{{ url('user!create') }}" title="Create an user"><i class="fas fa-user-plus"></i> Create</a></li>
             {% for user in user %}
                 <li>{{ user.name }}</li>
+                <li>{{ user.image }}</li>
                 <li>{{ user.email }}</li>
                 <li>{{ user.status }}</li>
                 <li><a href="{{ url('user!modify', {'id': user.id}) }}" title="Modify the user"><i class="fas fa-pen"></i> Modify</a></li>
+                <li><a href="{{ url('user!delete', {'id': user.id}) }}" title="Delete the user"><i class="fas fa-trash-alt"></i> Delete</a></li>
             {% endfor %}
         </ul>
     </article>
@@ -24,11 +26,12 @@
             <li><a href="{{ url('creation!create') }}" title="Create an other"><i class="far fa-plus-square"></i> Create</a></li>
             {% for creation in creation %}
                 <li>{{ creation.name }}</li>
-                <li>{{ creation.image }}</li>
+                <li><img src="img/creations/{{ creation.file }}" alt="Creation"></li>
                 <li><a href="{{ creation.link }}">{{ creation.name }}</a></li>
                 <li>Made in {{ creation.year }}</li>
                 <li>{{ creation.description }}</li>
                 <li><a href="{{ url('creation!modify', {'id': creation.id}) }}" title="Modify the creation"><i class="fas fa-pen"></i> Modify</a></li>
+                <li><a href="{{ url('creation!delete', {'id': creation.id}) }}" title="Delete the creation"><i class="fas fa-trash-alt"></i> Delete</a></li>
                 <li><hr></li>
             {% endfor %}
         </ul>
@@ -43,6 +46,7 @@
                 <li>{{ certificate.link }}</li>
                 <li>{{ certificate.certif_date }}</li>
                 <li><a href="{{ url('certificate!modify', {'id': certificate.id}) }}" title="Modify the certificate"><i class="fas fa-pen"></i> Modify</a></li>
+                <li><a href="{{ url('certificate!delete', {'id': certificate.id}) }}" title="Delete the certificate"><i class="fas fa-trash-alt"></i> Delete</a></li>
             {% endfor %}
         </ul>
     </article>
