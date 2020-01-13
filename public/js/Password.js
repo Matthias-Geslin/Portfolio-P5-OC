@@ -2,59 +2,62 @@
 
 class Password {
     constructor() {
-        this.diffPass = document.getElementById("diffPass");
+        this.color = "";
+        this.strength = "";
+        // Password.prototype.switching(this.value);
+        document.getElementById('passSignUp').addEventListener('keyup', this.switching.bind(this));
 
     }
 }
 
-Password.prototype.begin = function () {
+Password.prototype.begin = function (password) {
 
 };
 
 Password.prototype.switching = function (password) {
+    this.diffPass = document.getElementById("diffPass");
+
     // Do not show anything when the length of password is zero.
     if (password.length === 0) {
-        document.getElementById("diffPass").innerHTML = "";
+        this.diffPass.innerHTML = "";
         return;
     }
 
-    // Create an array and push all possible values that you want in password
-    var matchedCase = [];
-    matchedCase.push("[$@$!%*#?&]"); // Special Charector
-    matchedCase.push("[A-Z]");      // Uppercase Alpabates
-    matchedCase.push("[0-9]");      // Numbers
-    matchedCase.push("[a-z]");     // Lowercase Alphabates
+    let matchedCase = [];
+    matchedCase.push("[$@$!%*#?&]");
+    matchedCase.push("[A-Z]");
+    matchedCase.push("[0-9]");
+    matchedCase.push("[a-z]");
 
     // Check the conditions
-    var ctr = 0;
-    for (var i = 0; i < matchedCase.length; i++) {
+    let ctr = 0;
+    for (let i = 0; i < matchedCase.length; i++) {
         if (new RegExp(matchedCase[i]).test(password)) {
             ctr++;
         }
     }
+
     // Display it
-    var color = "";
-    var strength = "";
     switch (ctr) {
         case 0:
         case 1:
         case 2:
-            strength = "Very Weak";
-            color = "red";
+            this.strength = "Very Weak";
+            this.color = "red";
             break;
         case 3:
-            strength = "Medium";
-            color = "orange";
+            this.strength = "Medium";
+            this.color = "orange";
             break;
         case 4:
-            strength = "Strong";
-            color = "green";
+            this.strength = "Strong";
+            this.color = "green";
             break;
         default:
-            strength = "No password";
+            this.strength = "No password";
             break;
     }
-    document.getElementById("diffPass").innerHTML = strength;
-    document.getElementById("diffPass").style.color = color;
+    this.diffPass.innerHTML = this.strength;
+    this.diffPass.style.color = this.color;
 
 };
