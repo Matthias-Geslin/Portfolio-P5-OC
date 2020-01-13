@@ -42,12 +42,6 @@ class UserController extends MainController
      */
     private $post_content = [];
 
-    private function postData()
-    {
-        $this->post_content['name']        = $this->post['name'];
-        $this->post_content['email']       = $this->post['email'];
-        $this->post_content['status']      = $this->post['status'];
-    }
 
     private function postDataUser()
     {
@@ -68,7 +62,7 @@ class UserController extends MainController
     {
         $name         = $this->post['name'];
         if (!empty($this->files['file'])) {
-            $file = $this->uploadFile('img/user');
+            $file = $this->uploadFile('img/User');
         }
         $email        = $this->post['email'];
         $pass         = $this->post['pass'];
@@ -125,19 +119,7 @@ class UserController extends MainController
     public function modifyMethod()
     {
         if (!empty($this->post)) {
-            $this->postData();
-
-            if (!empty($this->getFileVar('file'))) {
-                $this->post_content['file'] = $this->uploadFile('img/user');
-            } else {
-                $file_get = ModelMaker::getModel('User')->readData($this->get['id']);
-
-                $this->post_content['file'] = $file_get['file'];
-            }
-
-            ModelMaker::getModel('User')->updateData($this->get['id'], $this->post_content);
-
-            $this->redirect('user');
+            $this->uploadingFile('User');
         }
         if ($this->getUserVar('status') == 'Admin') {
             $user = ModelMaker::getModel('User')->readData($this->get['id']);
