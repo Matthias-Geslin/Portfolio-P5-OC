@@ -40,7 +40,7 @@
                     <ul>
                         <li>
                             <label for="name">Name</label>
-                            <input id="name" name="name" type="text" placeholder="Name" required>
+                            <input id="name" name="name" type="text" placeholder="Name" maxlength="50" required>
                         </li>
                         <li>
                             <label for="file">Image</label>
@@ -48,11 +48,11 @@
                         </li>
                         <li>
                             <label for="emailSignUp">Email</label>
-                            <input id="emailSignUp" name="email" type="email" placeholder="Email" required>
+                            <input id="emailSignUp" name="email" type="email" placeholder="Email" maxlength="100" required>
                         </li>
                         <li>
                             <label for="passSignUp">Password</label>
-                            <input id="passSignUp" name="pass" type="password" placeholder="Password" autocomplete="off" onkeyup="Password.prototype.switching(this.value);" required>
+                            <input id="passSignUp" name="pass" type="password" placeholder="Password" autocomplete="off" maxlength="100" required>
                             <span id="diffPass"></span>
                         </li>
                         <li>
