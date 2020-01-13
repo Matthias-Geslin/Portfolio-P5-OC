@@ -2,7 +2,6 @@
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/941670b3f1ab4604b30746209c794aab)](https://www.codacy.com/manual/Matthias-Geslin/Portfolio?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Matthias-Geslin/Portfolio&amp;utm_campaign=Badge_Grade)
 [![Maintainability](https://api.codeclimate.com/v1/badges/7458ab9bd83a32855ef1/maintainability)](https://codeclimate.com/github/Matthias-Geslin/Portfolio/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/7458ab9bd83a32855ef1/test_coverage)](https://codeclimate.com/github/Matthias-Geslin/Portfolio/test_coverage)
 
 ## Overview
 
