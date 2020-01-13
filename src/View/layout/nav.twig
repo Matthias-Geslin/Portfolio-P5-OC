@@ -14,8 +14,8 @@
 
 
 {% if session.users.status is defined %}
-    <li>{{ session.users.name }} - {{ session.users.status }} - Logged in</li>
-    <li><img src="img/user/{{ session.users.file }}" alt="{{ session.users.name }}"></li>
+    <li>{{ session.users.name }} - Logged in</li>
+    <li><img class="sm-img" src="img/user/{{ session.users.file }}" alt="{{ session.users.name }} Image"></li>
 
     <li><a href="{{ url('connection!logout') }}" title="Log out"><i class="fas fa-sign-out-alt"></i> Log out</a></li>
 {% else %}
