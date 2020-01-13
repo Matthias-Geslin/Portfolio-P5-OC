@@ -8,21 +8,38 @@ body {
 }
 
 /*  */
-header {}
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  h1 {
+    text-align: center;
+    font-size: 3rem;
+  }
+  figure {
+    display: flex;
+    justify-content: space-around;
+  }
+  nav {
+    text-shadow: 1px 2px 0 $darkenBlue;
+  }
+}
 
 /*  */
 nav {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
   border: thick outset $darkenBlue;
   background-color: $coral;
   color: $darkenBlue;
+  font-size: 2rem;
   user-select: none;
 }
 
 /*  */
 section {
-  font-family: 'Quicksand', sans-serif;
-  //font-family: 'Mina', sans-serif;
+  font-family: 'Mina', sans-serif;
   background-color: $darkenBlue;
   color: $lightBlue;
   padding: $sm-padding;
@@ -32,13 +49,44 @@ section {
 main {}
 
 /*  */
-article {}
+article {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+
+  figure {
+    margin: 3rem 0 3rem 0;
+    border-radius: 5%;
+    box-shadow: 2px 5px 0 $lightBlue;
+
+    figcaption {
+      text-align: center;
+    }
+  }
+}
 
 /*  */
 aside {}
 
 /*  */
-footer {}
+footer {
+  ul {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+
+    li {
+      margin: 15px;
+
+      a {
+        display: flex;
+        justify-content: space-around;
+      }
+    }
+  }
+}
 
 ul {
   padding: 0;
@@ -53,20 +101,72 @@ h5,
 h6
 {
   font-family: 'Aleo', serif;
-
 }
-
+figure {
+  margin: 0;
+}
 img {
-  width: 100px;
+  width: 100%;
 }
 
 a {
   text-decoration: none;
   font-family: 'Gaegu', cursive;
 
-  &:link {    color: $link-colorLink;  }
-  &:visited {    color: $link-colorLink;  }
+  &:link {    color: $light-green;  }
+  &:visited {    color: $light-green;  }
 }
+
+// Social links
+.fa-github,
+.fa-twitter,
+.fa-linkedin,
+.fa-codepen,
+.fa-circle-notch
+{
+  border-radius: 25%;
+  background-color: white;
+  border: 3px solid;
+  padding: 5px;
+  box-shadow: 0 5px $light-green;
+
+  &:hover {
+    padding: 7px;
+    border: 0;
+    color: white;
+  }
+  &:active {
+    transform: translateY(5px);
+  }
+}
+
+.fa-twitter {
+  color: $twitter;
+
+  &:hover {
+    background-color: $twitter;
+  }
+}
+
+.fa-linkedin {
+  color: $linkedin;
+  &:hover {
+    background-color: $linkedin;
+  }
+}
+
+.fa-github,
+.fa-codepen,
+.fa-circle-notch
+{
+  color: black;
+
+  &:hover {
+    background-color: black;
+  }
+}
+
+.sm-img {width: 100px;}
 
 /* Media mobile screen */
 @media screen and (min-width: 479px) {}
