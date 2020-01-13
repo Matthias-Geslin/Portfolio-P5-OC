@@ -5,13 +5,27 @@
 {% block title %}My Creations{% endblock %}
 
 {% block content %}
-    <h2>My Creations</h2>
+    <h2>My Websites</h2>
     <article>
         {% for creation in creations %}
-        <figure>
-            <a href="img/creations/{{ creation.file }}"><img src="img/creations/{{ creation.file }}" alt="{{ creation.name }}"></a>
-            <figcaption><a href="{{ creation.link }}" title="{{ creation.name }}" target="_blank">{{ creation.description }}</a></figcaption>
-        </figure>
+            {% if creation.category is defined and creation.category == "Website" %}
+                <figure>
+                    <img src="img/creations/{{ creation.file }}" alt="{{ creation.name }}">
+                    <figcaption><i class="fas fa-arrow-right"></i> <a href="{{ creation.link }}" title="{{ creation.name }}" target="_blank">{{ creation.description }}</a></figcaption>
+                </figure>
+            {% endif %}
+        {% endfor %}
+    </article>
+
+    <h2>Codepen's</h2>
+    <article>
+        {% for creation in creations %}
+            {% if creation.category is defined and creation.category == "Codepen" %}
+                <figure>
+                    <img src="img/creations/{{ creation.file }}" alt="{{ creation.name }}">
+                    <figcaption><i class="fas fa-arrow-right"></i> <a href="{{ creation.link }}" title="{{ creation.name }}" target="_blank">{{ creation.description }}</a></figcaption>
+                </figure>
+            {% endif %}
         {% endfor %}
     </article>
 {% endblock %}
