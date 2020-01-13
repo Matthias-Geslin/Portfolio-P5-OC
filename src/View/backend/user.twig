@@ -28,6 +28,12 @@
                 <li>{{ creation.name }}</li>
                 <li><img class="sm-img" src="img/creations/{{ creation.file }}" alt="Creation"></li>
                 <li><a href="{{ creation.link }}">{{ creation.name }}</a></li>
+
+                {% if creation.link_secondary is null %}
+                {% else %}
+                    <li><a href="{{ creation.link_secondary }}" target="_blank">Codacy : {{ creation.link_secondary }}</a></li>
+                {% endif %}
+
                 <li>Made in {{ creation.year }}</li>
                 <li>{{ creation.description }}</li>
                 <li><a href="{{ url('creation!modify', {'id': creation.id}) }}" title="Modify the creation"><i class="fas fa-pen"></i> Modify</a></li>
