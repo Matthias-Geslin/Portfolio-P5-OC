@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\Extension\PhpAdditionalExtension;
+use App\Model\Maker\ModelMaker;
 use Twig\Environment;
 use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
@@ -77,5 +78,39 @@ abstract class MainController extends SuperGlobalsController
     public function render(string $view, array $params = [])
     {
         return $this->twig->render($view, $params);
+    }
+
+    /**
+     * @var array
+     */
+    private $post_content = [];
+
+    /**
+     * Uploading file into a table
+     * @param string $var
+     * @param int $id
+     */
+    public function uploadingFile(string $var)
+    {
+        if($var === 'Creation') {
+            $this->post_content['name']                    = $this->post['name'];
+            $this->post_content['link']                    = $this->post['link'];
+            $this->post_content['year']                    = $this->post['year'];
+            $this->post_content['description']             = $this->post['description'];
+            $this->post_content['category']                = $this->post['category'];
+        } else {
+            $this->post_content['name']                    = $this->post['name'];
+            $this->post_content['email']                   = $this->post['email'];
+            $this->post_content['status']                  = $this->post['status'];
+        }
+
+        if (!empty($this->getFileVar('file'))) {
+            $this->post_content['file'] = $this->uploadFile('img/' . $var);
+        }
+
+
+        ModelMaker::getModel('' . $var . '')->updateData($this->get['id'], $this->post_content);
+
+        $this->redirect('user');
     }
 }
