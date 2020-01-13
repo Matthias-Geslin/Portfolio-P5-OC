@@ -11,7 +11,7 @@
             <li><a href="{{ url('user!create') }}" title="Create an user"><i class="fas fa-user-plus"></i> Create</a></li>
             {% for user in user %}
                 <li>{{ user.name }}</li>
-                <li><img class="sm-img" src="img/user/{{ user.file }}" alt="{{ user.file }}"></li>
+                <li><img class="sm-img" src="img/User/{{ user.file }}" alt="{{ user.file }}"></li>
                 <li>{{ user.email }}</li>
                 <li>{{ user.status }}</li>
                 <li><a href="{{ url('user!modify', {'id': user.id}) }}" title="Modify the user"><i class="fas fa-pen"></i> Modify</a></li>
@@ -26,12 +26,12 @@
             <li><a href="{{ url('creation!create') }}" title="Create an other"><i class="far fa-plus-square"></i> Create</a></li>
             {% for creation in creation %}
                 <li>{{ creation.name }}</li>
-                <li><img class="sm-img" src="img/creations/{{ creation.file }}" alt="Creation"></li>
-                <li><a href="{{ creation.link }}">{{ creation.name }}</a></li>
+                <li><img class="sm-img" src="img/Creation/{{ creation.file }}" alt="Creation"></li>
+                <li><a href="{{ creation.link }}" title="{{ creation.link }}">{{ creation.name }}</a></li>
 
                 {% if creation.link_secondary is null %}
                 {% else %}
-                    <li><a href="{{ creation.link_secondary }}" target="_blank">Codacy : {{ creation.link_secondary }}</a></li>
+                    <li><a href="{{ creation.link_secondary }}" title="To Codacy" target="_blank">Codacy</a></li>
                 {% endif %}
 
                 <li>Made in {{ creation.year }}</li>
