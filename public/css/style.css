@@ -7,18 +7,37 @@ body {
 }
 
 /*  */
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+header h1 {
+  text-align: center;
+  font-size: 3rem;
+}
+header figure {
+  display: flex;
+  justify-content: space-around;
+}
+header nav {
+  text-shadow: 1px 2px 0 #498FB3;
+}
+
 /*  */
 nav {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
   border: thick outset #498FB3;
   background-color: #FF9CA5;
   color: #498FB3;
+  font-size: 2rem;
   user-select: none;
 }
 
 /*  */
 section {
-  font-family: "Quicksand", sans-serif;
+  font-family: "Mina", sans-serif;
   background-color: #498FB3;
   color: #82D5FF;
   padding: 15px;
@@ -26,8 +45,37 @@ section {
 
 /*  */
 /*  */
+article {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+article figure {
+  margin: 3rem 0 3rem 0;
+  border-radius: 5%;
+  box-shadow: 2px 5px 0 #82D5FF;
+}
+article figure figcaption {
+  text-align: center;
+}
+
 /*  */
 /*  */
+footer ul {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+}
+footer ul li {
+  margin: 15px;
+}
+footer ul li a {
+  display: flex;
+  justify-content: space-around;
+}
+
 ul {
   padding: 0;
   list-style-type: none;
@@ -42,8 +90,12 @@ h6 {
   font-family: "Aleo", serif;
 }
 
+figure {
+  margin: 0;
+}
+
 img {
-  width: 100px;
+  width: 100%;
 }
 
 a {
@@ -55,6 +107,63 @@ a:link {
 }
 a:visited {
   color: #bde2c4;
+}
+
+.fa-github,
+.fa-twitter,
+.fa-linkedin,
+.fa-codepen,
+.fa-circle-notch {
+  border-radius: 25%;
+  background-color: white;
+  border: 3px solid;
+  padding: 5px;
+  box-shadow: 0 5px #bde2c4;
+}
+.fa-github:hover,
+.fa-twitter:hover,
+.fa-linkedin:hover,
+.fa-codepen:hover,
+.fa-circle-notch:hover {
+  padding: 7px;
+  border: 0;
+  color: white;
+}
+.fa-github:active,
+.fa-twitter:active,
+.fa-linkedin:active,
+.fa-codepen:active,
+.fa-circle-notch:active {
+  transform: translateY(5px);
+}
+
+.fa-twitter {
+  color: #00A6F0;
+}
+.fa-twitter:hover {
+  background-color: #00A6F0;
+}
+
+.fa-linkedin {
+  color: #007BB6;
+}
+.fa-linkedin:hover {
+  background-color: #007BB6;
+}
+
+.fa-github,
+.fa-codepen,
+.fa-circle-notch {
+  color: black;
+}
+.fa-github:hover,
+.fa-codepen:hover,
+.fa-circle-notch:hover {
+  background-color: black;
+}
+
+.sm-img {
+  width: 100px;
 }
 
 /* Media mobile screen */
