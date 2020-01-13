@@ -21,6 +21,10 @@
                 <input id="link" type="text" name="link" value="{{ creation.link }}" required>
             </li>
             <li>
+                <label for="link_2nd">Link</label>
+                <input id="link_2nd" type="text" name="link" maxlength="100" value="{{ creation.link_secondary }}">
+            </li>
+            <li>
                 <label for="date">Date</label>
                 <input id="date" type="text" name="year" maxlength="4" value="{{ creation.year }}" required>
             </li>
