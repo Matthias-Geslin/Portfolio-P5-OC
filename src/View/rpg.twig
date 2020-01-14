@@ -1,0 +1,65 @@
+{% extends "layout/template.twig" %}
+
+{% block description %}Unordinary Player Game. RPG Game in PHP and JavaScript{% endblock %}
+
+{% block title %}Unordinary Player Game{% endblock %}
+
+{% block content %}
+    <h1>Unordinary Player Game</h1>
+
+    {% if session.users.status is defined %}
+        <aside>
+            {# Show up only for the first creation #}
+            <h3>Creation of your character</h3>
+            <fieldset>
+                <form action="{{ url('rpg!create') }}" method="post">
+                    <label for="name">Name of your character</label>
+                    <input id="name" name="name" type="text" maxlength="50" placeholder="Name of your character" required>
+
+                    <label for="category">Class to choose</label>
+                    <select id="category" name="category" required>
+                        <option value="Warrior" selected>Warrior</option>
+                        <option value="Sorcerer">Sorcerer</option>
+                        <option value="Archer">Archer</option>
+                        <option value="Paladin">Paladin</option>
+                    </select>
+                    <input type="submit" value="Confirm creation">
+                </form>
+            </fieldset>
+
+
+            <div>
+                <h3>Your Basic stats: </h3>
+                <ul>
+                    <li>You will start at level 1.</li>
+                    <li>
+                        <ol>
+                            {% for character in character %}
+                                <li><p>For {{ character.name }}</p></li>
+                                <li><p>HP : {{ character.health_points }}</p></li>
+                                <li><p>MP : {{ character.mana_points }}</p></li>
+                                <li><p>Stamina : {{ character.stamina }}</p></li>
+                                <li><p>Strength : {{ character.strength }}</p></li>
+                                <li><p>Intelligence : {{ character.intelligence }}</p></li>
+                                <li><p>Defense : {{ character.defense }}</p></li>
+                                <li><p>Agility : {{ character.agility }}</p></li>
+                            {% endfor %}
+                        </ol>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+
+        <article>
+            <h3>Loading the game ...</h3>
+        </article>
+
+    {% else %}
+        <article>
+            <h3>You need to be logged to access the game content ! <i class="far fa-smile-beam"></i></h3>
+            <ul>
+                <li>Need to contact the Owner ? Send an e-mail to : <a href="mailto:m.geslin974@gmail.com" title="m.geslin974@gmail.com">Matthias</a></li>
+            </ul>
+        </article>
+    {% endif %}
+{% endblock %}
