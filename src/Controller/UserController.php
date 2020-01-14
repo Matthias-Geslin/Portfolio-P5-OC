@@ -67,7 +67,7 @@ class UserController extends MainController
         $email        = $this->post['email'];
         $pass         = $this->post['pass'];
 
-        if (empty($name && $file && $email && $pass)) {
+        if (empty($name && $email)) {
             if ($this->getUserVar('status') == 'Admin') {
                 return $this->render('backend/userCreate.twig');
             } $this->redirect('home');
