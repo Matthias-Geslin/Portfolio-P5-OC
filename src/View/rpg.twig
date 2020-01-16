@@ -1,11 +1,11 @@
 {% extends "layout/template.twig" %}
 
-{% block description %}Unordinary Player Game. RPG Game in PHP and JavaScript{% endblock %}
+{% block description %}Unordinary Player Character. RPG Character in PHP and JavaScript{% endblock %}
 
-{% block title %}Unordinary Player Game{% endblock %}
+{% block title %}Unordinary Player Character{% endblock %}
 
 {% block content %}
-    <h1>Unordinary Player Game</h1>
+    <h1>Unordinary Player Character</h1>
 
     {% if session.users.status is defined %}
         <aside>
@@ -27,31 +27,75 @@
                 </form>
             </fieldset>
 
+            {% for character in character %}
+                <article id="stats">
+                    <h3>Your Basic stats: </h3>
 
-            <div>
-                <h3>Your Basic stats: </h3>
-                <ul>
-                    <li>You will start at level 1.</li>
-                    <li>
-                        <ol>
-                            {% for character in character %}
-                                <li><p>For {{ character.name }}</p></li>
-                                <li><p>HP : {{ character.health_points }}</p></li>
-                                <li><p>MP : {{ character.mana_points }}</p></li>
-                                <li><p>Stamina : {{ character.stamina }}</p></li>
-                                <li><p>Strength : {{ character.strength }}</p></li>
-                                <li><p>Intelligence : {{ character.intelligence }}</p></li>
-                                <li><p>Defense : {{ character.defense }}</p></li>
-                                <li><p>Agility : {{ character.agility }}</p></li>
-                            {% endfor %}
-                        </ol>
-                    </li>
-                </ul>
-            </div>
+                    <label for="stats-name">Name</label>
+                    <input id="stats-name" type="text" name="stats-name" disabled value="{{ character.name }}">
+
+                    <label for="stats-category">Class</label>
+                    <input id="stats-category" type="text" name="stats-category" disabled value="{{ character.category }}">
+
+                    <label for="stats-level">Level</label>
+                    <input id="stats-level" type="text" name="stats-level" disabled value="{{ character.level }}">
+
+                    <label for="stats-hp">Hp</label>
+                    <input id="stats-hp" type="text" name="stats-hp" disabled value="{{ character.health_points }}">
+
+                    <label for="stats-mp">Mp</label>
+                    <input id="stats-mp" type="text" name="stats-mp" disabled value="{{ character.mana_points }}">
+
+                    <label for="stats-stamina">Stamina</label>
+                    <input id="stats-stamina" type="text" name="stats-stamina" disabled value="{{ character.stamina }}">
+
+                    <label for="stats-strength">Strength</label>
+                    <input id="stats-strength" type="text" name="stats-strength" disabled value="{{ character.strength }}">
+
+                    <label for="stats-intelligence">Intelligence</label>
+                    <input id="stats-intelligence" type="text" name="stats-intelligence" disabled value="{{ character.intelligence }}">
+
+                    <label for="stats-defense">Defense</label>
+                    <input id="stats-defense" type="text" name="stats-defense" disabled value="{{ character.defense }}">
+
+                    <label for="stats-agility">Agility</label>
+                    <input id="stats-agility" type="text" name="stats-agility" disabled value="{{ character.agility }}">
+                </article>
+            {% endfor %}
         </aside>
 
         <article>
-            <h3>Loading the game ...</h3>
+
+            <fieldset>
+                <legend><i class="fas fa-scroll"></i>Fight</legend>
+                <form action="{{ url('Rpg!actions') }}" method="post">
+                    <label for="hit">Hit</label>
+                    <input id="hit" type="radio" name="action" value="hit" required>
+
+                    <label for="defend">Defend</label>
+                    <input id="defend" type="radio" name="action" value="defend" required>
+
+                    <label for="menu">Open menu</label>
+                    <input id="menu" type="checkbox" name="menu" value="menu">
+
+                    <input type="button" name="confirm" value="Confirm Action">
+                </form>
+
+                <div id="battle"></div>
+                <div id="monster-level"></div>
+                <div id="monster-hp"></div>
+                <div id="monster-mp"></div>
+                <div id="monster-str"></div>
+                <div><hr></div>
+                <div id="character-name"></div>
+                <div id="character-hp"></div>
+                <div id="character-mp"></div>
+                <div id="character-level"></div>
+                <div id="character-exp"></div>
+
+            </fieldset>
+
+
         </article>
 
     {% else %}
@@ -62,4 +106,9 @@
             </ul>
         </article>
     {% endif %}
+{% endblock %}
+
+{% block script %}
+    <script src="js/script.js"></script>
+    <script src="js/Rpg.js"></script>
 {% endblock %}
