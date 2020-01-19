@@ -5,43 +5,51 @@
 {% block title %}Homepage{% endblock %}
 
 {% block content %}
-    <article>
-        <h2>Ladder Unordinary Player Character</h2>
-        <ul>
-            {% for param in param %}
-                <li>
-                    <p>Name : {{ param.name }}</p>
-                    <p>Class : {{ param.category }}</p>
-                    <p>Level : {{ param.level }}</p>
-                    <hr>
-                </li>
-            {% endfor %}
-        </ul>
-    </article>
-
-    <article>
-        {#        try to do an select option to show the one who's choose #}
-        <h2>My Creations</h2>
+    <h2>My Creations</h2>
+    <article class="slider">
+        <h3>Websites I made</h3>
         {% for creation in creations %}
-            <ul>
-                <li>{{ creation.name }}</li>
-                <li><img class="sm-img" src="img/Creation/{{ creation.file }}" alt="Creation"></li>
-                <li><a href="{{ creation.link }}" title="{{ creation.link }}">Link to the website! </a></li>
-
-                <li>Made in {{ creation.year }}</li>
-                <li>{{ creation.description }}</li>
+            <ul class="picture fade">
+                <li><img src="img/Creation//{{ creation.file }}" alt="{{ creation.name }}"></li>
             </ul>
         {% endfor %}
+
+        <!--    Controls    -->
+        <div class="controls">
+            <input type="button"  id="prev" value="Previous">
+            <label for="prev" id="prev-lb" class="prev">
+                <i class="fa fa-chevron-left prev-mvt"></i>
+            </label>
+
+            <input type="button" id="play-btn" value="Start">
+            <label for="play-btn" id="play" class="play">
+                <i class="fa fa-play play-mvt"></i>
+            </label>
+
+            <input type="button" id="pause-btn" value="Pause">
+            <label for="pause-btn" id="pause" class="pause hide">
+                <i class="fa fa-pause pause-mvt"></i>
+            </label>
+
+            <input type="button" id="next" value="Next">
+            <label for="next" id="next-lb" class="next">
+                <i class="fas fa-chevron-right next-mvt"></i>
+            </label>
+        </div>
     </article>
 
-    <article>
-        {#        try to do an select option to show the one who's choose #}
-        <h2>Certificates</h2>
-        {% for certificate in certificates %}
-            <ul>
-                <li>{{ certificate.name }}</li>
-                <li><a href="{{ certificate.link }}" title="{{ certificate.name }}" target="_blank">{{ certificate.name }} - {{ certificate.certif_date }}</a></li>
-            </ul>
-        {% endfor %}
-    </article>
+
+    <h2>Certificates</h2>
+    {% for certificate in certificates %}
+        <ul>
+            <li>{{ certificate.name }}</li>
+            <li><a href="{{ certificate.link }}" title="{{ certificate.name }}" target="_blank">{{ certificate.name }} - {{ certificate.certif_date }}</a></li>
+        </ul>
+    {% endfor %}
+{% endblock %}
+
+{% block script %}
+    <script src="js/script.js"></script>
+
+    <script src="js/Slider.js"></script>
 {% endblock %}
