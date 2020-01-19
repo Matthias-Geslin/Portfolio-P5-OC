@@ -12,7 +12,8 @@
                 <figure>
                     <img src="img/Creation//{{ creation.file }}" alt="{{ creation.name }}">
                     <figcaption>
-                        <a href="{{ creation.link }}" title="{{ creation.name }}" target="_blank"><i class="fas fa-arrow-right"></i> {{ creation.description }}</a>
+                        <p><a href="{{ creation.link }}" title="{{ creation.name }}" target="_blank"><i class="fas fa-arrow-right"></i> {{ creation.description }}</a></p>
+                        <p>Made in {{ creation.year }}.</p>
 
                         {% if creation.link_secondary is null %}
                         {% else %}
