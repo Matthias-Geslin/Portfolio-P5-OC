@@ -89,8 +89,20 @@ class RpgController extends MainController {
             'agility'       => $this->stats['defense']
         ]);
 
+        ModelMaker::getModel('User')->updateData($this->getUserVar('id'), [
+            'user_character' => $this->post['name']
+        ]);
+
         $this->redirect('rpg');
     }
+
+    /**
+     * Menu Character Actions
+     */
+    public function actionsMethod() {
+
+    }
+
 
     public function hit() {}
 
