@@ -109,7 +109,7 @@ Slider.prototype.slide = function (index) {
         this.stop();
         for (let s = 0; s <= this.total; s++) {
             if (s === index) {
-                this.slides[s].style.display = "block";
+                this.slides[s].style.display = "flex";
             } else {
                 this.slides[s].style.display = "none";
             }
