@@ -1,5 +1,18 @@
 @import "variables";
 
+/* Keyframe fade */
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+/* webkit Keyframe fade */
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+
 html {}
 
 /*  */
@@ -140,7 +153,6 @@ header {
       display: none;
     }
 
-
     .hide-input,
     .show-input
     {
@@ -158,14 +170,35 @@ header {
       top: -117px;
       right: 0;
 
-      img {
-        width: border-box;
-      }
-
       .fa-circle {
         color: $green;
       }
     }
+  }
+
+  // Header Media rules
+  @media screen and (min-width: 479px) {
+    figure {
+      flex-direction: row;
+      justify-content: space-around;
+
+      figcaption {
+        font-size: 1.5rem;
+      }
+    }
+
+    nav {
+      ul {
+        justify-content: space-around;
+      }
+    }
+  }
+
+  @media screen and (min-width: 959px) {
+    flex-direction: row;
+    justify-content: space-evenly;
+
+    h1 {color: $coral;}
   }
 }
 
@@ -187,6 +220,47 @@ section {
   font-family: 'Mina', sans-serif;
 }
 
+// Btn linked to Javascript
+/* Slider btn control style */
+.controls {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  input {
+    display: none;
+  }
+  label {
+    font-size: 50px;
+    cursor: pointer;
+    padding: 16px;
+    transition: 0.6s ease;
+    border-radius: 10px;
+    user-select: none;
+  }
+  .prev:hover {
+    border-radius:0 15px;
+    box-shadow: -20px 0 10px 5px rgba(0,0,0,0.5);
+  }
+  .play:hover
+  {
+    border-radius: 0 200px 200px 0;
+    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.5);
+  }
+  .pause:hover {
+    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.5);
+  }
+  .next:hover {
+    border-radius: 15px 0;
+    box-shadow: 20px 0 10px 5px rgba(0, 0, 0, 0.5);
+  }
+}
+
+.fade {
+  animation: fade 1.5s;
+  -webkit-animation: fade 1.5s;
+}
+
 /*  */
 main {}
 
@@ -196,6 +270,15 @@ article {
   flex-direction: column;
   justify-content: space-evenly;
   flex-wrap: wrap;
+
+  .picture {
+    flex-direction: column;
+    align-items: center;
+
+    img {
+      width: 100%;
+    }
+  }
 
   figure {
     display: flex;
@@ -211,6 +294,7 @@ article {
     &:hover img {
       transform: rotateX(-180deg);
     }
+
     &:hover figcaption {
       transform: rotateX(0deg);
     }
@@ -249,25 +333,36 @@ article {
     &:link {
       color: lightcoral;
       text-decoration: underline $lightBlue 2px;
-
-
     }
+
     &:visited {
       color: $coral;
     }
+
     &:hover {
       text-decoration: underline wavy $lightBlue 2px;
 
       &:after {
-
         content: "\f5b8";
         color: $lightBlue;
       }
     }
+
     &:active {
       &:after {
         content: "\f4da";
       }
+    }
+  }
+
+  @media screen and (min-width: 959px) {
+    flex-direction: row;
+    justify-content: space-between;
+
+    figure {
+      width: 25%;
+      justify-content: center;
+      margin: 1rem;
     }
   }
 }
@@ -289,37 +384,29 @@ footer {
     justify-content: space-around;
     flex-direction: column;
     background-color: $darkenBlue;
-    //border: thick outset $darkenBlue;
-    //background-color: $lightBlue;
-    //color: $darkenBlue;
-    //text-shadow: 1px 2px 0 $darkenBlue;
-  }
-  ul {
-    //display: flex;
 
-    //justify-content: center;
-    //flex-wrap: wrap;
-    //align-items: center;
+    ul {
+      li {
+        margin: 15px;
 
-    li {
-      margin: 15px;
-
-      a {
-        display: flex;
-        justify-content: space-around;
-        &:link {color: black}
-        &:visited {color: $lightBlue}
-        &:hover {
-          color: $coral;
-          text-shadow: 0 1px 0 white;
-        }
-        &:active {
-          transform: translateY(1px);
-          text-shadow: none;
+        a {
+          display: flex;
+          justify-content: space-around;
+          &:link {color: black}
+          &:visited {color: $lightBlue}
+          &:hover {
+            color: $coral;
+            text-shadow: 0 1px 0 white;
+          }
+          &:active {
+            transform: translateY(1px);
+            text-shadow: none;
+          }
         }
       }
     }
   }
+
 
   // Social links
   .fa-github,
@@ -370,6 +457,27 @@ footer {
       background-color: black;
     }
   }
+
+  @media screen and (min-width: 959px) {
+    nav {
+      flex-direction: row;
+      padding: 1rem;
+
+      ul {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+
+        li {
+          h4 {
+            font-size: 2rem;
+            box-shadow: 2rem .5rem $lightBlue;
+            border-radius: 50%;
+          }
+        }
+      }
+    }
+  }
 }
 
 ul {
@@ -401,11 +509,20 @@ a {
 
 .sm-img {width: 80px;}
 .text-nav {display: none;}
+.hide {display: none;}
 
 
 /* Media mobile screen */
 @media screen and (min-width: 479px) {}
 /* Media tablet screen */
-@media screen and (min-width: 959px) {}
+@media screen and (min-width: 959px) {
+  .slider {
+    flex-direction: column;
+
+    .controls {
+      justify-content: space-evenly;
+    }
+  }
+}
 /* Media desktop screen */
 @media screen and (min-width: 1281px) {}
