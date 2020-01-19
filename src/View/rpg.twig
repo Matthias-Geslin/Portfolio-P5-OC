@@ -6,6 +6,16 @@
 
 {% block content %}
     <h1>Unordinary Player Character</h1>
+        <ul>
+            {% for param in param %}
+                <li>
+                    <p>Name : {{ param.name }}</p>
+                    <p>Class : {{ param.category }}</p>
+                    <p>Level : {{ param.level }}</p>
+                    <hr>
+                </li>
+            {% endfor %}
+        </ul>
 
     {% if session.users.status is defined %}
         <aside>
