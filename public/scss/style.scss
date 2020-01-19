@@ -483,7 +483,60 @@ footer {
 ul {
   padding: 0;
   list-style-type: none;
+  text-align: center;
+
+  .sign-up,
+  .sign-in
+  {
+    padding: 1rem;
+    margin: 1rem;
+  }
+
+  .form {
+    fieldset {
+      ul {
+        display: flex;
+        flex-direction: column;
+
+        li {
+          display: flex;
+          flex-direction: column;
+
+        }
+      }
+    }
+  }
+
+  #radio-signin:checked ~ #signin {
+    display: flex;
+    justify-content: center;
+  }
+  #radio-signin:checked ~ .sign-in {
+    color: $coral;
+    font-size: 2rem;
+    box-shadow: .1rem .5rem 1rem $coral;
+    border-radius: 50%;
+  }
+
+  #radio-signup:checked ~ #signup {
+    display: flex;
+    justify-content: center;
+  }
+  #radio-signup:checked  ~ .sign-up {
+    color: $lightBlue;
+    font-size: 2rem;
+    box-shadow: .1rem .5rem 1rem $lightBlue;
+    border-radius: 50%;
+  }
+
+  #signin,
+  #signup
+  {
+    display: none;
+    margin: 3rem;
+  }
 }
+
 
 h1,
 h2,
