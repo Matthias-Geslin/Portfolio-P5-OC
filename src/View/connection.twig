@@ -40,15 +40,20 @@
                     <ul>
                         <li>
                             <label for="name">Name</label>
-                            <input id="name" name="name" type="text" placeholder="Name" required>
+                            <input id="name" name="name" type="text" placeholder="Name" maxlength="50" required>
                         </li>
                         <li>
-                            <label for="email">Email</label>
-                            <input id="email" name="email" type="email" placeholder="Email" required>
+                            <label for="file">Image</label>
+                            <input id="file" type="file" name="file" accept=".jpg, .jpeg, .png, .svg, .gif" required>
                         </li>
                         <li>
-                            <label for="pass">Password</label>
-                            <input id="pass" name="pass" type="password" placeholder="Password" autocomplete="off" required>
+                            <label for="emailSignUp">Email</label>
+                            <input id="emailSignUp" name="email" type="email" placeholder="Email" maxlength="100" required>
+                        </li>
+                        <li>
+                            <label for="passSignUp">Password</label>
+                            <input id="passSignUp" name="pass" type="password" placeholder="Password" onkeyup="Password.switching(this.value);" autocomplete="off" maxlength="100" required>
+                            <span id="diffPass"></span>
                         </li>
                         <li>
                             <button type="submit" name="signup">Submit</button>
@@ -58,4 +63,9 @@
             </form>
         </li>
     </ul>
+{% endblock %}
+
+{% block script %}
+    <script src="js/script.js"></script>
+    <script src="js/Password.js"></script>
 {% endblock %}

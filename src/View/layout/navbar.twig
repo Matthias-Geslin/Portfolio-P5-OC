@@ -1,5 +1,35 @@
 <nav>
     <ul>
-        {{ include('layout/nav.twig') }}
+        <li><a href="{{ url('home') }}" title="Homepage"><i class="fas fa-home"></i> <span class="text-nav">Homepage</span></a></li>
+        <li><a href="{{ url('rpg') }}" title="RPG Character"><i class="fas fa-gamepad"></i> <span class="text-nav">RPG Character</span></a></li>
+        <li><a href="{{ url('creation') }}" title="My Creations"><i class="fas fa-journal-whills"></i> <span class="text-nav">My Creations</span></a></li>
+        <li><a href="{{ url('certificate') }}" title="Certifications"><i class="fas fa-user-tie"></i> <span class="text-nav">Certificates</span></a></li>
+
+        {% if session.users.status is defined and session.users.status == 'Admin' %}
+            <li><a href="{{ url('user') }}" title="Administration"><i class="fas fa-sign-in-alt"></i> <span class="text-nav">Administration</span></a></li>
+        {% elseif session.users.status is defined and session.users.status == 'Member' %}
+            <li><a href="{{ url('User') }}" title="Administration"><i class="fas fa-sign-in-alt"></i> <span class="text-nav">Personal infos</span></a></li>
+        {% elseif session.users.status is defined and session.users.status == 'Visitor' %}
+            <li>User not verified</li>
+        {% else %}
+            <li><a href="{{ url('connection') }}" title="Log in"><i class="fas fa-sign-in-alt"></i> <span class="text-nav">Log in</span></a></li>
+        {% endif %}
+        {#        <li><a href=""><i class="far fa-moon"></i></a></li>#}
+        {#        <li><a href=""><i class="far fa-sun"></i></a></li>#}
     </ul>
+
+    {% if session.users.status is defined %}
+        <input id="hide" class="hide-input" type="radio" name="user-menu" checked>
+        <input id="show" class="show-input" type="radio" name="user-menu">
+
+        <label for="hide" id="hide-label" class="hide-label"><i class="fas fa-minus-circle"></i></label>
+        <label for="show" id="show-label" class="show-label"><i class="fas fa-plus-circle"></i></label>
+
+        <div id="user-menu" class="user-menu">
+            <img class="sm-img" src="img/User/{{ session.users.file }}" alt="{{ session.users.name }} Image">
+            <span class="text-nav">{{ session.users.name }} - Logged in </span><i class="fas fa-circle"></i>
+            <a href="{{ url('connection!logout') }}" title="Log out"><i class="fas fa-sign-out-alt"></i> <span class="text-nav">Log out</span></a>
+        </div>
+    {% else %}
+    {% endif %}
 </nav>

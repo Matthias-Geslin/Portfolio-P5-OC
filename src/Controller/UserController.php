@@ -42,12 +42,6 @@ class UserController extends MainController
      */
     private $post_content = [];
 
-    private function postData()
-    {
-        $this->post_content['name']        = $this->post['name'];
-        $this->post_content['email']       = $this->post['email'];
-        $this->post_content['status']      = $this->post['status'];
-    }
 
     private function postDataUser()
     {
@@ -55,6 +49,7 @@ class UserController extends MainController
         $this->post_content['email']       = $this->post['email'];
 
         $this->post_content['status']      = $this->getUserVar('status');
+        $this->post_content['file']        = $this->getUserVar('file');
     }
 
     /**
@@ -66,10 +61,13 @@ class UserController extends MainController
     public function createMethod()
     {
         $name         = $this->post['name'];
+        if (!empty($this->files['file'])) {
+            $file = $this->uploadFile('img/User');
+        }
         $email        = $this->post['email'];
         $pass         = $this->post['pass'];
 
-        if (empty($name && $email && $pass)) {
+        if (empty($name && $email)) {
             if ($this->getUserVar('status') == 'Admin') {
                 return $this->render('backend/userCreate.twig');
             } $this->redirect('home');
@@ -78,6 +76,7 @@ class UserController extends MainController
         $pass_encrypted = password_hash($pass, PASSWORD_DEFAULT);
         ModelMaker::getModel('User')->createData([
             'name'        => $name,
+            'file'        => $file,
             'email'       => $email,
             'pass'        => $pass_encrypted
         ]);
@@ -88,6 +87,7 @@ class UserController extends MainController
             $this->sessionCreate(
                 $user['id'],
                 $user['name'],
+                $user['file'],
                 $user['email'],
                 $user['pass'],
                 $user['status']
@@ -119,11 +119,7 @@ class UserController extends MainController
     public function modifyMethod()
     {
         if (!empty($this->post)) {
-            $this->postData();
-
-            ModelMaker::getModel('User')->updateData($this->get['id'], $this->post_content);
-
-            $this->redirect('user');
+            $this->uploadingFile('User');
         }
         if ($this->getUserVar('status') == 'Admin') {
             $user = ModelMaker::getModel('User')->readData($this->get['id']);
@@ -153,6 +149,7 @@ class UserController extends MainController
             $this->sessionCreate(
                 $user['id'],
                 $user['name'],
+                $user['file'],
                 $user['email'],
                 $user['pass'],
                 $user['status']

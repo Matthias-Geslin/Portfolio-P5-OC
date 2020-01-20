@@ -61,15 +61,17 @@ abstract class SuperGlobalsController
     /**
      * @param int $id
      * @param string $name
+     * @param string $file
      * @param string $email
      * @param string $password
      * @param string $status
      */
-    public function sessionCreate(int $id, string $name, string $email, string $password,string $status)
+    public function sessionCreate(int $id, string $name, string $file, string $email, string $password,string $status)
     {
         $_SESSION['users'] = [
             'id'          => $id,
             'name'        => $name,
+            'file'        => $file,
             'email'       => $email,
             'pass'        => $password,
             'status'      => $status

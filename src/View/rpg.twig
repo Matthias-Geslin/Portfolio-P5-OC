@@ -1,0 +1,124 @@
+{% extends "layout/template.twig" %}
+
+{% block description %}Unordinary Player Character. RPG Character in PHP and JavaScript{% endblock %}
+
+{% block title %}Unordinary Player Character{% endblock %}
+
+{% block content %}
+    <h1>Unordinary Player Character</h1>
+        <ul>
+            {% for param in param %}
+                <li>
+                    <p>Name : {{ param.name }}</p>
+                    <p>Class : {{ param.category }}</p>
+                    <p>Level : {{ param.level }}</p>
+                    <hr>
+                </li>
+            {% endfor %}
+        </ul>
+
+    {% if session.users.status is defined %}
+        <aside>
+            {# Show up only for the first creation #}
+            <h3>Creation of your character</h3>
+            <fieldset>
+                <form action="{{ url('rpg!create') }}" method="post">
+                    <label for="name">Name of your character</label>
+                    <input id="name" name="name" type="text" maxlength="50" placeholder="Name of your character" required>
+
+                    <label for="category">Class to choose</label>
+                    <select id="category" name="category" required>
+                        <option value="Warrior" selected>Warrior</option>
+                        <option value="Sorcerer">Sorcerer</option>
+                        <option value="Archer">Archer</option>
+                        <option value="Paladin">Paladin</option>
+                    </select>
+                    <input type="submit" value="Confirm creation">
+                </form>
+            </fieldset>
+
+            {% for character in character %}
+                <article id="stats">
+                    <h3>Your Basic stats: </h3>
+
+                    <label for="stats-name">Name</label>
+                    <input id="stats-name" type="text" name="stats-name" disabled value="{{ character.name }}">
+
+                    <label for="stats-category">Class</label>
+                    <input id="stats-category" type="text" name="stats-category" disabled value="{{ character.category }}">
+
+                    <label for="stats-level">Level</label>
+                    <input id="stats-level" type="text" name="stats-level" disabled value="{{ character.level }}">
+
+                    <label for="stats-hp">Hp</label>
+                    <input id="stats-hp" type="text" name="stats-hp" disabled value="{{ character.health_points }}">
+
+                    <label for="stats-mp">Mp</label>
+                    <input id="stats-mp" type="text" name="stats-mp" disabled value="{{ character.mana_points }}">
+
+                    <label for="stats-stamina">Stamina</label>
+                    <input id="stats-stamina" type="text" name="stats-stamina" disabled value="{{ character.stamina }}">
+
+                    <label for="stats-strength">Strength</label>
+                    <input id="stats-strength" type="text" name="stats-strength" disabled value="{{ character.strength }}">
+
+                    <label for="stats-intelligence">Intelligence</label>
+                    <input id="stats-intelligence" type="text" name="stats-intelligence" disabled value="{{ character.intelligence }}">
+
+                    <label for="stats-defense">Defense</label>
+                    <input id="stats-defense" type="text" name="stats-defense" disabled value="{{ character.defense }}">
+
+                    <label for="stats-agility">Agility</label>
+                    <input id="stats-agility" type="text" name="stats-agility" disabled value="{{ character.agility }}">
+                </article>
+            {% endfor %}
+        </aside>
+
+        <article>
+
+            <fieldset>
+                <legend><i class="fas fa-scroll"></i>Fight</legend>
+                <form action="{{ url('Rpg!actions') }}" method="post">
+                    <label for="hit">Hit</label>
+                    <input id="hit" type="radio" name="action" value="hit" required>
+
+                    <label for="defend">Defend</label>
+                    <input id="defend" type="radio" name="action" value="defend" required>
+
+                    <label for="menu">Open menu</label>
+                    <input id="menu" type="checkbox" name="menu" value="menu">
+
+                    <input type="button" name="confirm" value="Confirm Action">
+                </form>
+
+                <div id="battle"></div>
+                <div id="monster-level"></div>
+                <div id="monster-hp"></div>
+                <div id="monster-mp"></div>
+                <div id="monster-str"></div>
+                <div><hr></div>
+                <div id="character-name"></div>
+                <div id="character-hp"></div>
+                <div id="character-mp"></div>
+                <div id="character-level"></div>
+                <div id="character-exp"></div>
+
+            </fieldset>
+
+
+        </article>
+
+    {% else %}
+        <article>
+            <h3>You need to be logged to access the game content ! <i class="far fa-smile-beam"></i></h3>
+            <ul>
+                <li>Need to contact the Owner ? Send an e-mail to : <a href="mailto:m.geslin974@gmail.com" title="m.geslin974@gmail.com">Matthias</a></li>
+            </ul>
+        </article>
+    {% endif %}
+{% endblock %}
+
+{% block script %}
+    <script src="js/script.js"></script>
+    <script src="js/Rpg.js"></script>
+{% endblock %}

@@ -13,11 +13,6 @@ use Twig\Error\SyntaxError;
 class CreationController extends MainController
 {
     /**
-     * @var array
-     */
-    private $post_content = [];
-
-    /**
      * @return string
      * @throws LoaderError
      * @throws RuntimeError
@@ -32,18 +27,6 @@ class CreationController extends MainController
         ]);
     }
 
-    /**
-     * @return string
-     */
-    private function postData()
-    {
-        $this->post_content['name']          = $this->post['name'];
-        $this->post_content['file']          = $this->files['file'];
-        $this->post_content['link']          = $this->post['link'];
-        $this->post_content['year']          = $this->post['year'];
-        $this->post_content['description']   = $this->post['description'];
-        $this->post_content['category']      = $this->post['category'];
-    }
 
     /**
      * @return string
@@ -55,7 +38,7 @@ class CreationController extends MainController
     {
         $name = $this->post['name'];
         if (!empty($this->files['file'])) {
-            $file = $this->uploadFile('img/creations');
+            $file = $this->uploadFile('img/Creation');
         }
         $link               = $this->post['link'];
         $year               = $this->post['year'];
@@ -98,24 +81,14 @@ class CreationController extends MainController
     public function modifyMethod()
     {
         if (!empty($this->post)) {
-            $this->postData();
-
-            if (!empty($this->getFileVar('file'))) {
-                $this->post_content['file'] = $this->uploadFile('img/creations');
-            } else {
-                $file_get = ModelMaker::getModel('Creation')->readData($this->get['id']);
-
-                $this->post_content['file'] = $file_get['file'];
-            }
-
-            ModelMaker::getModel('Creation')->updateData($this->get['id'], $this->post_content);
-
-            $this->redirect('user');
+            $this->uploadingFile('Creation');
         }
-        $creation = ModelMaker::getModel('Creation')->readData($this->get['id']);
+        if ($this->getUserVar('status') == 'Admin') {
+            $creation = ModelMaker::getModel('Creation')->readData($this->get['id']);
 
-        return $this->render('backend/creationModify.twig', [
-            'creation' => $creation
-        ]);
+            return $this->render('backend/creationModify.twig', [
+                'creation' => $creation
+            ]);
+        } $this->redirect('home');
     }
 }
