@@ -9,6 +9,7 @@ use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
 use Twig\Extension\DebugExtension;
 use Twig\Loader\FilesystemLoader;
+use Twig\TwigFilter;
 
 /**
  * Class MainController
@@ -36,11 +37,9 @@ abstract class MainController extends SuperGlobalsController
         ));
         $this->twig->addExtension(new DebugExtension());
         $this->twig->addExtension(new PhpAdditionalExtension());
-        $this->twig->addGlobal('session', $_SESSION);
-        $this->twig->addGlobal('post', $_POST);
-        $this->twig->addGlobal('get', $_GET);
-        $this->twig->addGlobal('file', $_FILES);
-        $this->twig->addFilter( new \Twig\TwigFilter('nl2br', 'nl2br', ['is_safe' => ['html']]));
+        $this->twig->addGlobal('session', filter_var_array($_SESSION));
+        $this->twig->addGlobal('file', filter_var_array($_FILES));
+        $this->twig->addFilter( new TwigFilter('nl2br', 'nl2br', ['is_safe' => ['html']]));
     }
 
     /**
@@ -88,11 +87,10 @@ abstract class MainController extends SuperGlobalsController
     /**
      * Uploading file into a table
      * @param string $var
-     * @param int $id
      */
     public function uploadingFile(string $var)
     {
-        if($var === 'Creation') {
+        if ($var === 'Creation') {
             $this->post_content['name']                    = $this->post['name'];
             $this->post_content['link']                    = $this->post['link'];
             $this->post_content['year']                    = $this->post['year'];
