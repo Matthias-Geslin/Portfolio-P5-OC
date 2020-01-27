@@ -36,25 +36,20 @@ class CreationController extends MainController
      */
     public function createMethod()
     {
-        $name = $this->post['name'];
         if (!empty($this->files['file'])) {
             $file = $this->uploadFile('img/Creation');
         }
-        $link               = $this->post['link'];
-        $year               = $this->post['year'];
-        $description        = $this->post['description'];
-        $category           = $this->post['category'];
 
-        if (empty($name && $file && $link && $year && $description && $category)) {
+        if (empty($this->post)) {
             return $this->render('backend/creationCreate.twig');
         }
         ModelMaker::getModel('Creation')->createData([
-            'name'        => $name,
+            'name'        => $this->post['name'],
             'file'        => $file,
-            'link'        => $link,
-            'year'        => $year,
-            'description' => $description,
-            'category'    => $category
+            'link'        => $this->post['link'],
+            'year'        => $this->post['year'],
+            'description' => $this->post['description'],
+            'category'    => $this->post['category']
         ]);
         $this->redirect('user');
     }
