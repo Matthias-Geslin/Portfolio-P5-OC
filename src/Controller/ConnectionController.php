@@ -24,23 +24,18 @@ class ConnectionController extends MainController
             $user = ModelMaker::getModel('User')->readData($this->post['email'], 'email');
 
             if (password_verify($this->post['pass'], $user['pass'])) {
-                $this->sessionCreate(
-                    $user['id'],
-                    $user['name'],
-                    $user['file'],
-                    $user['email'],
-                    $user['pass'],
-                    $user['status']
-                );
+                $this->sessionCreate($user);
                 $this->redirect('home');
             }
         }
-        if($this->getUserVar('status') === 'Admin' || $this->getUserVar('status') === 'Member') {
+
+        if ($this->getUserVar('status') === 'Admin' || $this->getUserVar('status') === 'Member') {
             $this->redirect('user');
         }
         elseif ($this->getUserVar('status') === 'Visitor') {
             $this->redirect('home');
         }
+
         return $this->render('connection.twig');
     }
 
