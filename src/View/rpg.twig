@@ -41,35 +41,14 @@
                 <article id="stats">
                     <h3>Your Basic stats: </h3>
 
-                    <label for="stats-name">Name</label>
-                    <input id="stats-name" type="text" name="stats-name" disabled value="{{ character.name }}">
-
                     <label for="stats-category">Class</label>
                     <input id="stats-category" type="text" name="stats-category" disabled value="{{ character.category }}">
-
-                    <label for="stats-level">Level</label>
-                    <input id="stats-level" type="text" name="stats-level" disabled value="{{ character.level }}">
 
                     <label for="stats-hp">Hp</label>
                     <input id="stats-hp" type="text" name="stats-hp" disabled value="{{ character.health_points }}">
 
-                    <label for="stats-mp">Mp</label>
-                    <input id="stats-mp" type="text" name="stats-mp" disabled value="{{ character.mana_points }}">
-
-                    <label for="stats-stamina">Stamina</label>
-                    <input id="stats-stamina" type="text" name="stats-stamina" disabled value="{{ character.stamina }}">
-
                     <label for="stats-strength">Strength</label>
                     <input id="stats-strength" type="text" name="stats-strength" disabled value="{{ character.strength }}">
-
-                    <label for="stats-intelligence">Intelligence</label>
-                    <input id="stats-intelligence" type="text" name="stats-intelligence" disabled value="{{ character.intelligence }}">
-
-                    <label for="stats-defense">Defense</label>
-                    <input id="stats-defense" type="text" name="stats-defense" disabled value="{{ character.defense }}">
-
-                    <label for="stats-agility">Agility</label>
-                    <input id="stats-agility" type="text" name="stats-agility" disabled value="{{ character.agility }}">
                 </article>
             {% endfor %}
         </aside>
@@ -92,15 +71,9 @@
                 </form>
 
                 <div id="battle"></div>
-                <div id="monster-level"></div>
                 <div id="monster-hp"></div>
-                <div id="monster-mp"></div>
-                <div id="monster-str"></div>
                 <div><hr></div>
-                <div id="character-name"></div>
                 <div id="character-hp"></div>
-                <div id="character-mp"></div>
-                <div id="character-level"></div>
                 <div id="character-exp"></div>
 
             </fieldset>
@@ -119,6 +92,5 @@
 {% endblock %}
 
 {% block script %}
-    <script src="js/script.js"></script>
     <script src="js/Rpg.js"></script>
 {% endblock %}

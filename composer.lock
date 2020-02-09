@@ -4,83 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "9012a2fbff6c6b94d9b5619d97b095fa",
+    "content-hash": "8f21610f14d53a34eb1fddf74927007c",
     "packages": [
-        {
-            "name": "fortawesome/font-awesome",
-            "version": "5.12.0.x-dev",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/FortAwesome/Font-Awesome.git",
-                "reference": "1dbc4d02959bf8c59b834dbf534ec88dac6ce0de"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/FortAwesome/Font-Awesome/zipball/1dbc4d02959bf8c59b834dbf534ec88dac6ce0de",
-                "reference": "1dbc4d02959bf8c59b834dbf534ec88dac6ce0de",
-                "shasum": ""
-            },
-            "type": "library",
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "CC-BY-4.0",
-                "OFL-1.1",
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Travis Chase",
-                    "homepage": "http://twitter.com/supercodepoet"
-                },
-                {
-                    "name": "Dave Gandy",
-                    "homepage": "http://twitter.com/davegandy"
-                },
-                {
-                    "name": "Rob Madole",
-                    "homepage": "http://twitter.com/robmadole"
-                },
-                {
-                    "name": "Jory Raphael",
-                    "homepage": "http://twitter.com/sensibleworld"
-                },
-                {
-                    "name": "Geremia Taglialatela",
-                    "homepage": "http://twitter.com/gtagliala"
-                },
-                {
-                    "name": "Brian Talbot",
-                    "homepage": "http://twitter.com/talbs"
-                },
-                {
-                    "name": "Mike Wilkerson",
-                    "homepage": "http://twitter.com/mw77"
-                }
-            ],
-            "description": "The iconic font, CSS, and SVG framework",
-            "homepage": "https://fontawesome.com",
-            "keywords": [
-                "FontAwesome",
-                "awesome",
-                "bootstrap",
-                "font",
-                "icon",
-                "svg"
-            ],
-            "time": "2019-12-10T22:51:22+00:00"
-        },
         {
             "name": "symfony/polyfill-ctype",
             "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-ctype.git",
-                "reference": "f8f0b461be3385e56d6de3dbb5a0df24c0c275e3"
+                "reference": "fbdeaec0df06cf3d51c93de80c7eb76e271f5a38"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/f8f0b461be3385e56d6de3dbb5a0df24c0c275e3",
-                "reference": "f8f0b461be3385e56d6de3dbb5a0df24c0c275e3",
+                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/fbdeaec0df06cf3d51c93de80c7eb76e271f5a38",
+                "reference": "fbdeaec0df06cf3d51c93de80c7eb76e271f5a38",
                 "shasum": ""
             },
             "require": {
@@ -92,7 +29,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.13-dev"
+                    "dev-master": "1.14-dev"
                 }
             },
             "autoload": {
@@ -125,7 +62,7 @@
                 "polyfill",
                 "portable"
             ],
-            "time": "2019-11-27T13:56:44+00:00"
+            "time": "2020-01-13T11:15:53+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -133,12 +70,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-mbstring.git",
-                "reference": "7b4aab9743c30be783b73de055d24a39cf4b954f"
+                "reference": "34094cfa9abe1f0f14f48f490772db7a775559f2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/7b4aab9743c30be783b73de055d24a39cf4b954f",
-                "reference": "7b4aab9743c30be783b73de055d24a39cf4b954f",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/34094cfa9abe1f0f14f48f490772db7a775559f2",
+                "reference": "34094cfa9abe1f0f14f48f490772db7a775559f2",
                 "shasum": ""
             },
             "require": {
@@ -150,7 +87,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.13-dev"
+                    "dev-master": "1.14-dev"
                 }
             },
             "autoload": {
@@ -184,7 +121,7 @@
                 "portable",
                 "shim"
             ],
-            "time": "2019-11-27T14:18:11+00:00"
+            "time": "2020-01-13T11:15:53+00:00"
         },
         {
             "name": "twig/twig",
@@ -192,12 +129,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "e770b802038266521075017f6e59b903dfe2b4e2"
+                "reference": "e52bcf67cfc047c3aeecb67b6db462165ae3d7a6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/e770b802038266521075017f6e59b903dfe2b4e2",
-                "reference": "e770b802038266521075017f6e59b903dfe2b4e2",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/e52bcf67cfc047c3aeecb67b6db462165ae3d7a6",
+                "reference": "e52bcf67cfc047c3aeecb67b6db462165ae3d7a6",
                 "shasum": ""
             },
             "require": {
@@ -249,7 +186,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2020-01-03T19:00:30+00:00"
+            "time": "2020-01-13T08:20:25+00:00"
         }
     ],
     "packages-dev": [

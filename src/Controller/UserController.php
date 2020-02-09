@@ -60,38 +60,27 @@ class UserController extends MainController
      */
     public function createMethod()
     {
-        $name         = $this->post['name'];
         if (!empty($this->files['file'])) {
             $file = $this->uploadFile('img/User');
         }
-        $email        = $this->post['email'];
-        $pass         = $this->post['pass'];
 
-        if (empty($name && $email)) {
+        if (empty($this->post)) {
             if ($this->getUserVar('status') == 'Admin') {
                 return $this->render('backend/userCreate.twig');
             } $this->redirect('home');
         }
 
-        $pass_encrypted = password_hash($pass, PASSWORD_DEFAULT);
         ModelMaker::getModel('User')->createData([
-            'name'        => $name,
+            'name'        => $this->post['name'],
             'file'        => $file,
-            'email'       => $email,
-            'pass'        => $pass_encrypted
+            'email'       => $this->post['email'],
+            'pass'        => password_hash($this->post['pass'], PASSWORD_DEFAULT)
         ]);
 
         // Redirection if signup form complete
         if (isset($this->post['signup'])) {
             $user = ModelMaker::getModel('User')->readData($this->post['email'], 'email');
-            $this->sessionCreate(
-                $user['id'],
-                $user['name'],
-                $user['file'],
-                $user['email'],
-                $user['pass'],
-                $user['status']
-            );
+            $this->sessionCreate($user);
             $this->redirect('home');
         }
         $this->redirect('user');
@@ -146,14 +135,7 @@ class UserController extends MainController
             $user = ModelMaker::getModel('User')->readData($this->post['email'], 'email');
 
             $this->sessionDestroy();
-            $this->sessionCreate(
-                $user['id'],
-                $user['name'],
-                $user['file'],
-                $user['email'],
-                $user['pass'],
-                $user['status']
-            );
+            $this->sessionCreate($user);
 
             $this->redirect('user');
         }

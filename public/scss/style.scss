@@ -372,8 +372,8 @@ aside {}
 
 /*  */
 footer {
-  background: -moz-linear-gradient(left, #FF9CA5 0%, rgba(255,255,255,0.0), #FF9CA5 100%);
-  background: -webkit-linear-gradient(left, #FF9CA5 0%,rgba(255,255,255,0.0), #FF9CA5 100%);
+  background: -moz-linear-gradient(to right, #FF9CA5 0%, rgba(255,255,255,0.0), #FF9CA5 100%);
+  background: -webkit-linear-gradient(to right, #FF9CA5 0%,rgba(255,255,255,0.0), #FF9CA5 100%);
   background: linear-gradient(to right, #FF9CA5 0%, rgba(255,255,255,0.0), #FF9CA5 100%);
 
   margin-bottom:  10rem;
