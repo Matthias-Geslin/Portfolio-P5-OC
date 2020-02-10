@@ -15,4 +15,9 @@ document.addEventListener("DOMContentLoaded", function (e) {
         var rpg = new Rpg();
         rpg.begin();
     }
+
+    if (typeof Search !== "undefined") {
+      var search = new Search();
+      search.begin();
+    }
 });
