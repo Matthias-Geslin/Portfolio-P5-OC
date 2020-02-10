@@ -280,6 +280,35 @@ article {
     }
   }
 
+  a {
+    font-size: 1.5rem;
+    font-family: "Font Awesome 5 Free", 'Gaegu', serif;
+
+    &:link {
+      color: lightcoral;
+      text-decoration: underline $lightBlue 2px;
+    }
+
+    &:visited {
+      color: $coral;
+    }
+
+    &:hover {
+      text-decoration: underline wavy $lightBlue 2px;
+
+      &:after {
+        content: "\f5b8";
+        color: $lightBlue;
+      }
+    }
+
+    &:active {
+      &:after {
+        content: "\f4da";
+      }
+    }
+  }
+
   figure {
     display: flex;
     align-self: center;
@@ -326,34 +355,7 @@ article {
     }
   }
 
-  a {
-    font-size: 1.5rem;
-    font-family: "Font Awesome 5 Free", 'Gaegu', serif;
 
-    &:link {
-      color: lightcoral;
-      text-decoration: underline $lightBlue 2px;
-    }
-
-    &:visited {
-      color: $coral;
-    }
-
-    &:hover {
-      text-decoration: underline wavy $lightBlue 2px;
-
-      &:after {
-        content: "\f5b8";
-        color: $lightBlue;
-      }
-    }
-
-    &:active {
-      &:after {
-        content: "\f4da";
-      }
-    }
-  }
 
   @media screen and (min-width: 959px) {
     flex-direction: row;
@@ -363,6 +365,12 @@ article {
       width: 25%;
       justify-content: center;
       margin: 1rem;
+
+      figcaption {
+        a {
+          font-size: 100%;
+        }
+      }
     }
   }
 }
@@ -422,8 +430,6 @@ footer {
     box-shadow: 0 5px $light-green;
 
     &:hover {
-      padding: 7px;
-      border: 0;
       color: white;
     }
     &:active {
