@@ -24,6 +24,11 @@ abstract class MainController extends SuperGlobalsController
     protected $twig = null;
 
     /**
+     * @var array
+     */
+    private $post_content = [];
+
+    /**
      * MainController constructor
      * Creates the Template Engine & adds its Extensions
      */
@@ -80,11 +85,6 @@ abstract class MainController extends SuperGlobalsController
     }
 
     /**
-     * @var array
-     */
-    private $post_content = [];
-
-    /**
      * Uploading file into a table
      * @param string $var
      */
@@ -102,7 +102,7 @@ abstract class MainController extends SuperGlobalsController
             $this->post_content['status']                  = $this->post['status'];
         }
 
-        if (!empty($this->getFileVar('file'))) {
+        if (!empty($this->getFileVar('name'))) {
             $this->post_content['file'] = $this->uploadFile('img/' . $var);
         }
 
