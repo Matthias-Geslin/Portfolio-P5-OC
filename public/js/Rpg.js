@@ -1,19 +1,19 @@
-'use strict';
+"use strict";
 
 
 class Rpg {
     constructor(hp, strength) {
-        this.action = document.getElementById('hit');
-        this.defend = document.getElementById('defend');
+        this.action = document.getElementById("hit");
+        this.defend = document.getElementById("defend");
 
         // Fixed statistics
-        this.characterStatsName              = document.getElementById('stats-name');
-        this.characterStatsHp                = document.getElementById('stats-hp');
-        this.characterStatsStrength          = document.getElementById('stats-strength');
+        this.characterStatsName              = document.getElementById("stats-name");
+        this.characterStatsHp                = document.getElementById("stats-hp");
+        this.characterStatsStrength          = document.getElementById("stats-strength");
 
         // In Fight Statistics
-        this.characterHp                     = document.getElementById('character-hp');
-        this.characterName                   = document.getElementById('character-name');
+        this.characterHp                     = document.getElementById("character-hp");
+        this.characterName                   = document.getElementById("character-name");
         this.characterDamages                = this.characterStatsStrength * 0.75;
 
         // Monster stats randomized
@@ -35,41 +35,41 @@ Rpg.prototype.begin = function () {
     this.selected();
     this.startBattle();
     this.menu();
-    this.characterName.innerHTML = 'Name: ' + this.characterStatsName.value;
-    this.characterHp.innerHTML ='HP: ' + this.characterStatsHp.value;
+    this.characterName.innerHTML = "Name: " + this.characterStatsName.value;
+    this.characterHp.innerHTML ="HP: " + this.characterStatsHp.value;
 };
 
 Rpg.prototype.selected = function () {
-    if('Warrior') {
+    if("Warrior" === true) {
         this.Rpg(44, 2).getStats();
     }
-    if('Sorcerer') {
+    if("Sorcerer" === true) {
         this.Rpg(44, 3).getStats();
     }
-    if('Archer') {
+    if("Archer" === true) {
         this.Rpg(40,1).getStats();
     }
 };
 
 Rpg.prototype.menu = function () {
-    const battle = document.getElementById('battle');
+    const battle = document.getElementById("battle");
 
-    this.action.addEventListener('click', function () {
-        battle.innerHTML = 'Hit the monster !';
+    this.action.addEventListener("click", function () {
+        battle.innerHTML = "Hit the monster !";
         this.monsterHp = this.monsterHp - this.characterDamages;
-        monsterHp.innerHTML = 'Hp: ' + this.monsterHp;
+        monsterHp.innerHTML = "Hp: " + this.monsterHp;
     });
 
-    this.defend.addEventListener('click', function () {
-        battle.innerHTML = 'Back to defense !';
+    this.defend.addEventListener("click", function () {
+        battle.innerHTML = "Back to defense !";
     });
 };
 
 Rpg.prototype.startBattle = function() {
-    let monsterHp = document.getElementById('monster-hp');
-    monsterHp.innerHTML = 'Hp: ' + this.monsterHp;
-    let monsterMp = document.getElementById('monster-mp');
-    monsterMp.innerHTML = 'Mp: ' + this.monsterMp;
+    let monsterHp = document.getElementById("monster-hp");
+    monsterHp.innerHTML = "Hp: " + this.monsterHp;
+    let monsterMp = document.getElementById("monster-mp");
+    monsterMp.innerHTML = "Mp: " + this.monsterMp;
 };
 
 Rpg.prototype.randomNbr = function(min, max) {
