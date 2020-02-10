@@ -278,7 +278,6 @@ article figure {
   border-radius: 5%;
   position: relative;
   transform-style: preserve-3d;
-  perspective: 600px;
   transition: 0.5s;
 }
 article figure:hover img {
