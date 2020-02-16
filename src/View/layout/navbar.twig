@@ -1,7 +1,7 @@
 <nav>
     <ul>
         <li><a href="{{ url('home') }}" title="Homepage"><i class="fas fa-home"></i> <span class="text-nav">Homepage</span></a></li>
-        <li><a href="{{ url('rpg') }}" title="RPG Character"><i class="fas fa-gamepad"></i> <span class="text-nav">RPG Character</span></a></li>
+        <li><a href="{{ url('contact') }}" title="Contact"><i class="fas fa-address-book"></i> <span class="text-nav">Contact</span></a></li>
         <li><a href="{{ url('creation') }}" title="My Creations"><i class="fas fa-journal-whills"></i> <span class="text-nav">My Creations</span></a></li>
         <li><a href="{{ url('certificate') }}" title="Certifications"><i class="fas fa-user-tie"></i> <span class="text-nav">Certificates</span></a></li>
 
@@ -14,8 +14,6 @@
         {% else %}
             <li><a href="{{ url('connection') }}" title="Log in"><i class="fas fa-sign-in-alt"></i> <span class="text-nav">Log in</span></a></li>
         {% endif %}
-        {#        <li><a href=""><i class="far fa-moon"></i></a></li>#}
-        {#        <li><a href=""><i class="far fa-sun"></i></a></li>#}
     </ul>
 
     {% if session.users.status is defined %}
