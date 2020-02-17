@@ -11,13 +11,8 @@ document.addEventListener("DOMContentLoaded", function (e) {
         password.begin();
     }
 
-    if (typeof Rpg !== "undefined") {
-        var rpg = new Rpg();
-        rpg.begin();
-    }
-
-    if (typeof Search !== "undefined") {
-      var search = new Search();
-      search.begin();
+    if (typeof Contact !== "undefined") {
+      var contact = new Contact();
+      contact.submit();
     }
 });
