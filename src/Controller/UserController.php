@@ -60,7 +60,7 @@ class UserController extends MainController
      */
     public function createMethod()
     {
-        if (!empty($this->files['file'])) {
+        if (!empty($this->getFileVar('name'))) {
             $file = $this->uploadFile('img/User');
         }
 

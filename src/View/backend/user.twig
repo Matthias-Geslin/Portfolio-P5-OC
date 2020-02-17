@@ -5,9 +5,9 @@
 {% block title %}Administration{% endblock %}
 
 {% block content %}
-
+<h2>Page d'accès administrateur</h2>
     {% if session.users.status is defined and session.users.status == 'Admin' %}
-        <article>
+        <section class="admin-container">
             <h3>Users</h3>
             <ul>
                 <li><a href="{{ url('user!create') }}" title="Create an user"><i class="fas fa-user-plus"></i> Create</a></li>
@@ -20,9 +20,9 @@
                     <li><a href="{{ url('user!delete', {'id': user.id}) }}" title="Delete the user"><i class="fas fa-trash-alt"></i> Delete</a></li>
                 {% endfor %}
             </ul>
-        </article>
+        </section>
 
-        <article>
+        <section class="admin-container">
             <h3>Creations</h3>
             <ul>
                 <li><a href="{{ url('creation!create') }}" title="Create an other"><i class="far fa-plus-square"></i> Create</a></li>
@@ -43,9 +43,9 @@
                     <li><hr></li>
                 {% endfor %}
             </ul>
-        </article>
+        </section>
 
-        <article>
+        <section class="admin-container">
             <h3>Certificates</h3>
             <ul>
                 <li><a href="{{ url('certificate!create') }}" title="Create an other"><i class="far fa-plus-square"></i> Create</a></li>
@@ -57,9 +57,9 @@
                     <li><a href="{{ url('certificate!delete', {'id': certificate.id}) }}" title="Delete the certificate"><i class="fas fa-trash-alt"></i> Delete</a></li>
                 {% endfor %}
             </ul>
-        </article>
+        </section>
     {% else %}
-        <article>
+        <section class="admin-container">
             <h3>Edit personal infos</h3>
             <form action="{{ url('user!useredit', {'id': user.id }) }}" method="post" enctype="multipart/form-data">
                 <ul>
@@ -88,7 +88,7 @@
                     </li>
                 </ul>
             </form>
-        </article>
+        </section>
     {% endif %}
 
 {% endblock %}

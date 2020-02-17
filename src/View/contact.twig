@@ -1,0 +1,45 @@
+{% extends "layout/template.twig" %}
+
+{% block description %}Developer contact by form{% endblock %}
+
+{% block title %}Contact page{% endblock %}
+
+{% block content %}
+  <h1>Contact form</h1>
+  <form method="post" action="{{ url('contact!mail') }}" enctype="text/plain">
+    <ul>
+      <li>
+        <label for="first_name">First Name</label>
+        <input id="first_name" type="text" placeholder="First name" name="first_name" required>
+      </li>
+
+      <li>
+        <label for="last_name">Last Name</label>
+        <input id="last_name" type="text" placeholder="Name" name="last_name" required>
+      </li>
+
+      <li>
+        <label for="email">E-mail</label>
+        <input id="email" type="email" placeholder="Mail" name="email" required>
+      </li>
+
+      <li>
+        <label for="subject">Subject</label>
+        <input id="subject" type="text" placeholder="Subject" name="subject"required>
+      </li>
+
+      <li>
+        <label for="contents">Content</label>
+        <textarea id="contents" placeholder="Content" name="content" rows="6" required></textarea>
+      </li>
+
+      <li>
+        <input type="submit" value="Envoyer">
+      </li>
+    </ul>
+  </form>
+{% endblock %}
+
+{% block script %}
+<script src="js/Contact.js"></script>
+{% endblock %}

@@ -193,7 +193,7 @@ nav ul {
 
 /*  */
 section {
-  padding: 15px;
+  padding: 5px;
   font-family: "Mina", sans-serif;
 }
 
@@ -209,7 +209,7 @@ section {
 .controls label {
   font-size: 50px;
   cursor: pointer;
-  padding: 16px;
+  padding: 15px;
   transition: 0.6s ease;
   border-radius: 10px;
   user-select: none;
@@ -250,6 +250,27 @@ article .picture {
 article .picture img {
   width: 100%;
 }
+article a {
+  font-size: 1.5rem;
+  font-family: "Font Awesome 5 Free", "Gaegu", serif;
+}
+article a:link {
+  color: lightcoral;
+  text-decoration: underline #82D5FF 2px;
+}
+article a:visited {
+  color: #FF9CA5;
+}
+article a:hover {
+  text-decoration: underline wavy #82D5FF 2px;
+}
+article a:hover:after {
+  content: "";
+  color: #82D5FF;
+}
+article a:active:after {
+  content: "";
+}
 article figure {
   display: flex;
   align-self: center;
@@ -257,7 +278,6 @@ article figure {
   border-radius: 5%;
   position: relative;
   transform-style: preserve-3d;
-  perspective: 600px;
   transition: 0.5s;
 }
 article figure:hover img {
@@ -288,27 +308,6 @@ article figure figcaption {
   background-color: grey;
   color: #ffffff;
 }
-article a {
-  font-size: 1.5rem;
-  font-family: "Font Awesome 5 Free", "Gaegu", serif;
-}
-article a:link {
-  color: lightcoral;
-  text-decoration: underline #82D5FF 2px;
-}
-article a:visited {
-  color: #FF9CA5;
-}
-article a:hover {
-  text-decoration: underline wavy #82D5FF 2px;
-}
-article a:hover:after {
-  content: "";
-  color: #82D5FF;
-}
-article a:active:after {
-  content: "";
-}
 @media screen and (min-width: 959px) {
   article {
     flex-direction: row;
@@ -318,6 +317,9 @@ article a:active:after {
     width: 25%;
     justify-content: center;
     margin: 1rem;
+  }
+  article figure figcaption a {
+    font-size: 100%;
   }
 }
 
@@ -373,8 +375,6 @@ footer .fa-twitter:hover,
 footer .fa-linkedin:hover,
 footer .fa-codepen:hover,
 footer .fa-circle-notch:hover {
-  padding: 7px;
-  border: 0;
   color: white;
 }
 footer .fa-github:active,

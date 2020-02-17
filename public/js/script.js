@@ -11,8 +11,8 @@ document.addEventListener("DOMContentLoaded", function (e) {
         password.begin();
     }
 
-    if (typeof Rpg !== "undefined") {
-        var rpg = new Rpg();
-        rpg.begin();
+    if (typeof Contact !== "undefined") {
+      var contact = new Contact();
+      contact.submit();
     }
 });

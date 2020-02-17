@@ -89,16 +89,16 @@ header {
         display: flex;
         justify-content: center;
         align-self: center;
-        padding: 5px;
-        margin: 5px;
+        padding: $sm-padding;
+        margin: $sm-margin;
 
         a {
           display: flex;
           align-items: center;
           color: $darkenBlue;
-          padding: 10px;
+          padding: $md-padding;
 
-          border-radius: 25%;
+          border-radius: $md-radius;
           background-color: white;
           box-shadow: 0 5px $darkenBlue;
 
@@ -127,9 +127,9 @@ header {
       top: -57px;
       right: 0;
       color: $darkenBlue;
-      padding: 10px;
+      padding: $md-padding;
 
-      border-radius: 5%;
+      border-radius: $sm-radius;
       background-color: $light-white;
       box-shadow: 0 5px $coral;
 
@@ -164,8 +164,8 @@ header {
       flex-direction: row;
       align-items: flex-start;
 
-      padding: 5px;
-      border-radius: 5%;
+      padding: $sm-padding;
+      border-radius: $sm-radius;
       background-color: $coral;
       top: -117px;
       right: 0;
@@ -233,7 +233,7 @@ section {
   label {
     font-size: 50px;
     cursor: pointer;
-    padding: 16px;
+    padding: $lg-padding;
     transition: 0.6s ease;
     border-radius: 10px;
     user-select: none;
@@ -280,15 +280,43 @@ article {
     }
   }
 
+  a {
+    font-size: 1.5rem;
+    font-family: "Font Awesome 5 Free", 'Gaegu', serif;
+
+    &:link {
+      color: lightcoral;
+      text-decoration: underline $lightBlue 2px;
+    }
+
+    &:visited {
+      color: $coral;
+    }
+
+    &:hover {
+      text-decoration: underline wavy $lightBlue 2px;
+
+      &:after {
+        content: "\f5b8";
+        color: $lightBlue;
+      }
+    }
+
+    &:active {
+      &:after {
+        content: "\f4da";
+      }
+    }
+  }
+
   figure {
     display: flex;
     align-self: center;
     margin: 3rem 0 3rem 0;
-    border-radius: 5%;
+    border-radius: $sm-radius;
 
     position: relative;
     transform-style: preserve-3d;
-    perspective: 600px;
     transition: .5s;
 
     &:hover img {
@@ -326,34 +354,7 @@ article {
     }
   }
 
-  a {
-    font-size: 1.5rem;
-    font-family: "Font Awesome 5 Free", 'Gaegu', serif;
 
-    &:link {
-      color: lightcoral;
-      text-decoration: underline $lightBlue 2px;
-    }
-
-    &:visited {
-      color: $coral;
-    }
-
-    &:hover {
-      text-decoration: underline wavy $lightBlue 2px;
-
-      &:after {
-        content: "\f5b8";
-        color: $lightBlue;
-      }
-    }
-
-    &:active {
-      &:after {
-        content: "\f4da";
-      }
-    }
-  }
 
   @media screen and (min-width: 959px) {
     flex-direction: row;
@@ -363,6 +364,12 @@ article {
       width: 25%;
       justify-content: center;
       margin: 1rem;
+
+      figcaption {
+        a {
+          font-size: 100%;
+        }
+      }
     }
   }
 }
@@ -387,7 +394,7 @@ footer {
 
     ul {
       li {
-        margin: 15px;
+        margin: $lg-margin;
 
         a {
           display: flex;
@@ -415,15 +422,13 @@ footer {
   .fa-codepen,
   .fa-circle-notch
   {
-    border-radius: 25%;
+    border-radius: $md-radius;
     background-color: white;
     border: 3px solid;
-    padding: 5px;
+    padding: $sm-padding;
     box-shadow: 0 5px $light-green;
 
     &:hover {
-      padding: 7px;
-      border: 0;
       color: white;
     }
     &:active {
@@ -472,7 +477,7 @@ footer {
           h4 {
             font-size: 2rem;
             box-shadow: 2rem .5rem $lightBlue;
-            border-radius: 50%;
+            border-radius: $lg-radius;
           }
         }
       }
@@ -515,7 +520,7 @@ ul {
     color: $coral;
     font-size: 2rem;
     box-shadow: .1rem .5rem 1rem $coral;
-    border-radius: 50%;
+    border-radius: $lg-radius;
   }
 
   #radio-signup:checked ~ #signup {
@@ -526,7 +531,7 @@ ul {
     color: $lightBlue;
     font-size: 2rem;
     box-shadow: .1rem .5rem 1rem $lightBlue;
-    border-radius: 50%;
+    border-radius: $lg-radius;
   }
 
   #signin,

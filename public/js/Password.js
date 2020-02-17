@@ -29,30 +29,33 @@ class Password {
             }
         }
 
+        let strength;
+        let color;
+
         // Display it
         switch (counter) {
             case 0:
             case 1:
-                this.strength = "Very Weak";
-                this.color = "darkred";
+                strength = "Very Weak";
+                color = "darkred";
                 break;
             case 2:
-                this.strength = "Weak";
-                this.color = "red";
+                strength = "Weak";
+                color = "red";
                 break;
             case 3:
-                this.strength = "Medium";
-                this.color = "orange";
+                strength = "Medium";
+                color = "orange";
                 break;
             case 4:
-                this.strength = "Strong";
-                this.color = "green";
+                strength = "Strong";
+                color = "green";
                 break;
             default:
-                this.strength = "No password";
+                strength = "No password";
                 break;
         }
-        this.diffPass.innerHTML = this.strength;
-        this.diffPass.style.color = this.color;
+        this.diffPass.innerHTML = strength;
+        this.diffPass.style.color = color;
     }
 }
