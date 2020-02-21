@@ -22,13 +22,10 @@ class HomeController extends MainController
      */
     public function launchMethod()
     {
-        $params         = ModelMaker::getModel('Rpg')->listData();
-
         $creations      = ModelMaker::getModel('Creation')->listData();
         $certificates   = ModelMaker::getModel('Certificate')->listData();
 
         return $this->render('home.twig',[
-            'param'        => $params,
             'creations'     => $creations,
             'certificates'  => $certificates
         ]);
