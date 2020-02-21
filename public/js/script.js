@@ -10,9 +10,4 @@ document.addEventListener("DOMContentLoaded", function (e) {
         var password = new Password();
         password.begin();
     }
-
-    if (typeof Contact !== "undefined") {
-      var contact = new Contact();
-      contact.submit();
-    }
 });
