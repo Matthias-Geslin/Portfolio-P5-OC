@@ -196,6 +196,28 @@ section {
   padding: 5px;
   font-family: "Mina", sans-serif;
 }
+section #form input, section #form textarea {
+  border: 1px solid black;
+  font-size: 1rem;
+}
+section #form [type=submit] {
+  background-color: #FF9CA5;
+  width: 25%;
+  padding: 10px;
+  border-radius: 50%;
+  margin: auto;
+  border: 2px solid #82D5FF;
+}
+section #form ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+section #form ul li {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+}
 
 /* Slider btn control style */
 .controls {

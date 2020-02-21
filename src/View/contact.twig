@@ -6,7 +6,7 @@
 
 {% block content %}
   <h1>Contact form</h1>
-  <form method="post" action="{{ url('contact!mail') }}" enctype="text/plain">
+  <form id="form" method="get" action="{{ url('contact!mail') }}" enctype="text/plain">
     <ul>
       <li>
         <label for="first_name">First Name</label>
@@ -34,12 +34,37 @@
       </li>
 
       <li>
-        <input type="submit" value="Envoyer">
+        <input type="submit" id="submit" value="Send">
       </li>
     </ul>
   </form>
+  <div id="msg"><div>
 {% endblock %}
 
 {% block script %}
-<script src="js/Contact.js"></script>
+
+<script>
+  var submit = document.getElementById('submit');
+  var msg = document.getElementById('msg');
+
+  var request = new XMLHttpRequest();
+
+  request.onreadystatechange = function() {
+    if(request.readyState === 4) {
+      msg.style.border = '1px solid #e8e8e8';
+      if(request.status === 200) {
+        msg.innerHTML = request.responseText;
+      } else {
+        msg.innerHTML = 'An error occurred during your request: ' +  request.status + ' ' + request.statusText;
+      }
+    }
+  }
+  request.open('Get', 'https://matthias-geslin.fr/public/allow.txt');
+
+  submit.addEventListener('click', function() {
+    this.style.display = 'none';
+    request.send();
+  });
+
+</script>
 {% endblock %}
