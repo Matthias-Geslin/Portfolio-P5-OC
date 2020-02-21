@@ -7,6 +7,17 @@
 
 My own Portfolio
 
+### Installation
+
+Select the portfolio.sql and import the file to your database.
+There are 3 tables: User, Creation and Certificate.
+Default data are going to be written at the first import to use the website.
+They are available in the same file.
+
+Administrator account in localhost:
+ID:         test@test.fr
+Password:   admin999@
+
 ## Summary
 
 -   [Download](#download)  
