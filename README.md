@@ -5,7 +5,7 @@
 
 ## Overview
 
-My own Portfolio
+Old Portfolio Openclassrooms project
 
 ### Installation
 
