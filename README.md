@@ -41,7 +41,6 @@ Password:   admin999@
 
 ## Support
 
-The blog has continuous support !
 
 [![Maintenance](https://img.shields.io/maintenance/yes/2020)](https://github.com/Matthias-Geslin/Portfolio)
 [![GitHub last commit (branch)](https://img.shields.io/github/last-commit/Matthias-Geslin/Portfolio/dev)](https://github.com/Matthias-Geslin/Portfolio/commits/dev)
